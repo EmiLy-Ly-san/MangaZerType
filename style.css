@@ -1,0 +1,115 @@
+/*VARIABLES*/
+:root {
+  /*COLOR*/
+  --white: #ffffff;
+  --black: #000000;
+  --lightRed: #f23a56;
+  --mainGreen: #97dbca;
+  --lightGreen: #b7f0df;
+  --realGreen: #00c090;
+  /*TEXT CONFIGURATION*/
+  --general-font: "Hind Vadodara", sans-serif;
+  --body-font-size: 1.25rem;
+  --body-highlight-font-size: 1.5rem;
+  --body-font-weight: 400;
+  --body-highlight-font-weight: 600;
+  --body-line-height: 1.5rem;
+  --body-highlight-line-height: 1.5rem;
+
+  --header-font-size: 3rem;
+  --header-font-weight: 600;
+  --header-line-height: 5rem;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: var(--general-font);
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: var(--header-font-size);
+  font-weight: var(--header-font-weight);
+  line-height: var(--header-line-height);
+}
+
+.titleContenair {
+  border: solid 3px var(--mainGreen);
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 0 3px var(--white),
+    inset 0px 0px 0 4.5px var(--mainGreen);
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+}
+
+nav div {
+  border: solid 2px var(--mainGreen);
+  border-radius: 10px;
+  font-size: var(--body-font-size);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-line-height);
+}
+
+.gameContenair {
+  border: solid 3px var(--mainGreen);
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 0 3px var(--white),
+    inset 0px 0px 0 4.5px var(--mainGreen);
+}
+
+.instruction p {
+  font-size: var(--body-highlight-font-size);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-highlight-line-height);
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: var(--body-font-size);
+}
+.choices div {
+  border: solid 2px var(--mainGreen);
+  border-radius: 10px;
+  font-size: var(--body-font-size);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-line-height);
+}
+
+.subject {
+  font-size: var(--body-font-size);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-highlight-line-height);
+}
+
+.inputPlayerContenair {
+  display: flex;
+  flex-direction: column;
+}
+
+.response {
+  display: flex;
+  flex-direction: row;
+}
+
+.scoreContenair {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
