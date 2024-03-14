@@ -26,7 +26,6 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-family: var(--general-font);
 }
@@ -38,22 +37,29 @@ header {
   align-items: center;
 }
 
+.titleContenair {
+  border: solid 3px var(--mainGreen);
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 0 3px var(--white),
+    inset 0px 0px 0 4.5px var(--mainGreen);
+  width: 1040px;
+  display: flex;
+  justify-content: center;
+  margin-top: 68px;
+}
+
 h1 {
   font-size: var(--header-font-size);
   font-weight: var(--header-font-weight);
   line-height: var(--header-line-height);
 }
 
-.titleContenair {
-  border: solid 3px var(--mainGreen);
-  border-radius: 20px;
-  box-shadow: inset 0px 0px 0 3px var(--white),
-    inset 0px 0px 0 4.5px var(--mainGreen);
-}
-
 nav {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 1040px;
+  margin-top: 34px;
 }
 
 nav div {
@@ -62,6 +68,11 @@ nav div {
   font-size: var(--body-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: var(--body-line-height);
+  padding: 0.5rem;
+}
+
+nav div:hover {
+  border: solid 4px var(--lightRed);
 }
 
 .gameContenair {
@@ -69,47 +80,125 @@ nav div {
   border-radius: 20px;
   box-shadow: inset 0px 0px 0 3px var(--white),
     inset 0px 0px 0 4.5px var(--mainGreen);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 1040px;
+  height: 646px;
+  padding-top: 34px;
+  padding-bottom: 34px;
+  margin-top: 34px;
 }
 
 .instruction p {
   font-size: var(--body-highlight-font-size);
   font-weight: var(--body-highlight-font-weight);
-  line-height: var(--body-highlight-line-height);
+  line-height: 2rem;
+  text-align: center;
+  width: 900px;
 }
 
 .choices {
+  margin-top: 70px;
+  margin-bottom: 34px;
+  width: 646px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: var(--body-font-size);
 }
+
 .choices div {
   border: solid 2px var(--mainGreen);
   border-radius: 10px;
   font-size: var(--body-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: var(--body-line-height);
+  padding: 0.5rem;
+}
+
+.choices div:hover {
+  border: solid 4px var(--lightRed);
 }
 
 .subject {
+  font-family: var(--general-font);
   font-size: var(--body-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: var(--body-highlight-line-height);
+  border: solid 3px var(--mainGreen);
+  border-radius: 20px;
+  width: 646px;
+  margin-bottom: 34px;
+  text-align: center;
+  padding: 0.5rem;
 }
 
 .inputPlayerContenair {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .response {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  border: solid 1.5px var(--mainGreen);
+  border-radius: 20px;
+  width: 646px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.arrow {
+  padding-left: 34px;
+  padding-right: 18px;
+}
+
+.response input {
+  border: solid 1.5px var(--mainGreen);
+  border-radius: 20px;
+  width: 500px;
+  font-family: sans-serif;
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-highlight-line-height);
+  padding: 0.5rem;
+}
+
+.response input:hover {
+  border: solid 4px var(--lightRed);
+}
+
+button {
+  border: solid 1.5px var(--mainGreen);
+  border-radius: 20px;
+  width: 168px;
+  margin-top: 34px;
+  padding: 0.5rem;
+  background-color: var(--mainGreen);
+  font-family: var(--general-font);
+  font-size: var(--body-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
 }
 
 .scoreContenair {
+  font-size: var(--body-highlight-font-size);
+  font-family: var(--general-font);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  margin-top: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 240px;
+  height: 86px;
+  padding: 0.5rem;
+  background-color: var(--mainGreen);
+  border-radius: 20px;
+  box-shadow: inset 0px 0px 0 3px var(--mainGreen),
+    inset 0px 0px 0 10.5px var(--white);
 }
