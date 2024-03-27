@@ -116,12 +116,29 @@ main {
 
 .challengeChoices {
   margin-top: 4.25rem;
-  margin-bottom: 2.125rem;
   width: 72%;
+  height: 15%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: var(--body-font-size);
+}
+
+.picturesContener {
+  width: 15%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.125rem;
+}
+
+img {
+  width: 100%;
+  position: absolute;
+  top: -3rem;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 
 .subject {
@@ -132,6 +149,7 @@ main {
   border: solid 3px var(--mainGreen);
   border-radius: 1.25rem;
   width: 72%;
+  margin-top: 10rem;
   margin-bottom: 2.125rem;
   text-align: center;
   padding: 0.5rem;
@@ -178,9 +196,6 @@ main {
   padding: 0.5rem;
   background-color: var(--mainGreen);
   font-family: var(--general-font);
-  font-size: var(--body-font-size);
-  font-weight: var(--body-font-weight);
-  line-height: var(--body-line-height);
 }
 
 .scoreContenair {

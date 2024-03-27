@@ -1,14 +1,15 @@
 /***********VARIABLES - CLASS - OBJECTS***********/
 //PICTIRES variables
+const homePicture = document.getElementById("homePicture");
 const onePiecePicture = document.getElementById("onePiecePicture");
 const spyFamilyPicture = document.getElementById("spyFamilyPicture");
 const ranmaDemiPicture = document.getElementById("ranmaDemiPicture");
-const onePunchManPicture = document.getElementById("onePunchManPicture");
+const onePunchManPicture = document.getElementById("onePuchManPicture");
 const attaqueDesTitansPicture = document.getElementById(
   "attaqueDesTitansPicture"
 );
 const deadDeadDemonDestructionPicture = document.getElementById(
-  "deadDeadDemonDestructionPicture"
+  "deaDeadDemonDestructionPicture"
 );
 
 //CLASS
@@ -139,7 +140,7 @@ let formToValidateUserResponse = document.querySelector(
 let validationButton = document.getElementById("validation");
 
 //INSTRUCTIONS varibales
-let subject = document.querySelector(".subject");
+let subject = document.querySelector(".subject em");
 
 //INPUT RESPONSE PLAYER variables
 let responsePlayer = document.getElementById("inputPlayer");
@@ -223,6 +224,8 @@ function mangaUserChoiceSelect() {
     bookButton.addEventListener("click", () => {
       bookButton.style.border = "solid 4px #f23a56";
       mangaUserChoice = booksCollection[bookButton.id];
+      mangaUserChoice.picture.classList.remove("hidden");
+      homePicture.classList.add("hidden");
       console.log(mangaUserChoice);
       buttonsDisable(booksButtons);
       challengeChoose();
