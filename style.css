@@ -28,6 +28,23 @@ body {
   flex-direction: column;
   align-items: center;
   font-family: var(--general-font);
+  position: relative;
+}
+
+button {
+  border: solid 2px var(--mainGreen);
+  border-radius: 0.625rem;
+  font-size: var(--body-font-size);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-line-height);
+  padding: 0.5rem;
+  text-align: center;
+  background-color: var(--white);
+  cursor: pointer;
+}
+
+button:hover {
+  border: solid 4px var(--lightRed);
 }
 
 header {
@@ -59,27 +76,13 @@ h1 {
   -webkit-text-fill-color: transparent;
 }
 
-nav {
+.booksContener {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   gap: 1rem;
   width: 60%;
   margin-top: 2.125rem;
-}
-
-nav div {
-  border: solid 2px var(--mainGreen);
-  border-radius: 0.625rem;
-  font-size: var(--body-font-size);
-  font-weight: var(--body-highlight-font-weight);
-  line-height: var(--body-line-height);
-  padding: 0.5rem;
-  text-align: center;
-}
-
-nav div:hover {
-  border: solid 4px var(--lightRed);
 }
 
 main {
@@ -111,7 +114,7 @@ main {
   margin: auto;
 }
 
-.choices {
+.challengeChoices {
   margin-top: 4.25rem;
   margin-bottom: 2.125rem;
   width: 72%;
@@ -119,19 +122,6 @@ main {
   flex-direction: row;
   justify-content: space-between;
   font-size: var(--body-font-size);
-}
-
-.choices div {
-  border: solid 2px var(--mainGreen);
-  border-radius: 0.625rem;
-  font-size: var(--body-font-size);
-  font-weight: var(--body-highlight-font-weight);
-  line-height: var(--body-line-height);
-  padding: 0.5rem;
-}
-
-.choices div:hover {
-  border: solid 4px var(--lightRed);
 }
 
 .subject {
@@ -180,11 +170,7 @@ main {
   padding: 0.5rem;
 }
 
-.response input:hover {
-  border: solid 4px var(--lightRed);
-}
-
-button {
+#validation {
   border: solid 1.5px var(--mainGreen);
   border-radius: 1.25rem;
   width: 24%;
@@ -216,6 +202,59 @@ button {
     inset 0px 0px 0 10.5px var(--white);
 }
 
+.modal {
+  font-size: var(--body-highlight-font-size);
+  font-weight: var(--body-font-weight);
+  line-height: var(--body-line-height);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+  width: 40%;
+  height: 36%;
+  padding: 1.5rem;
+  background-color: var(--mainGreen);
+  border-radius: 1.25rem;
+  box-shadow: inset 0px 0px 0 3px var(--mainGreen),
+    inset 0px 0px 0 10.5px var(--white);
+  position: absolute;
+  top: 40%;
+  z-index: 2;
+}
+
+.scoreInstructionButton {
+  display: none;
+  background-color: var(--lightRed);
+  border: none;
+  margin-top: 2.125rem;
+}
+
+.modal p {
+  color: var(--lightRed);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-highlight-line-height);
+  margin: 0.4rem 0 0.2rem;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px);
+  z-index: 1;
+}
+
+.hidden {
+  display: none;
+}
 /*@media (max-width: 1024px) {
   /* VARIABLES 
   :root {
@@ -282,7 +321,7 @@ button {
     padding: 1rem;
   }
 
-  nav {
+  .bookShell {
     width: 85%;
     gap: 0.5rem;
   }

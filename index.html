@@ -15,38 +15,48 @@
       <div class="titleContenair">
         <h1>MangAzerType</h1>
       </div>
-      <nav>
-        <div>One Piece</div>
-        <div>Spy Family</div>
-        <div>Ranma 1/2</div>
-        <div>One-Punch Man</div>
-        <div>L'Attaque des Titans</div>
-        <div>Dead Dead Demon Destruction</div>
-      </nav>
+      <div class= "booksContener">
+        <button class= "booksButtons" id="onePiece">One Piece</button>
+        <button class= "booksButtons" id="spyFamily">Spy Family</button>
+        <button class= "booksButtons" id="ranmaDemi">Ranma 1/2</button>
+        <button class= "booksButtons" id="onePunchMan">One-Punch Man</button>
+        <button class= "booksButtons" id="attaqueDesTitans">L'Attaque des Titans</button>
+        <button class= "booksButtons" id="deadDeadDemonDestruction">Dead Dead Demon Destruction</button>
+      </div>
     </header>
     <main>
-      <div class="gameContenair">
+      <section class="gameContenair">
         <div class="instruction">
-          <p>Pour t'entrainer a ecrire au clavier, tape les noms des personnages ou les phrases cultes de tes mangas preferes !</p>
+          <p >Pour t'entrainer a ecrire au clavier, tape les noms des personnages ou les phrases cultes de tes mangas preferes !</p>
         </div>
-        <div class="choices">
-            <div class="charactersChoice">PERSONNAGES</div>
-            <img src="" alt="">
-            <div class="sentencesChoice">PHRASES</div>
+        <div class="challengeChoices">
+            <button class="choicesButtons" id="charactersChoice">PERSONNAGES</button>
+            <img src="" id="onePiecePicture" alt="">
+            <img src="" id="spyFamilyPicture" alt="">
+            <img src="" id="ranmaDemiPicture" alt="">
+            <img src="" id="onePuchManPicture" alt="">
+            <img src="" id="attaqueDesTitansPicture" alt="">
+            <img src="" id="deaDeadDemonDestructionPicture" alt="">
+            <button class="choicesButtons" id="sentencesChoice">PHRASES</button>
         </div>
-        <div class="subject"><em>Juste un gars banal qui joue un role de super heros banal</em></div>
-        <div class="inputPlayerContenair">
+        <div class="subject"><em>MangAzerType !</em></div>
+        <form class="inputPlayerContenair">
           <div class="response">
             <div class="arrow">-></div>
-            <input type="text" id="inputPlayer" name="inputPlayer"></input>
+            <input type="text" id="inputPlayer" name="inputPlayer" placeholder="Recopie ici !"></input>
           </div>
-          <button id="validation">Valider</button>
-          <div class="scoreContenair">
-            <div class="scoreInstruction">SCORE</div>
-            <div class="scorePlayer">0/5</div>
+          <button type="submit" id="validation">Valider</button>
+        
+          
+        <div class="modal hidden">
+          
+            <p class="scorePlayer"></p>
+            <button class="okButton">OK</button>    
           </div>
-        </div>
-      </div>
+        
+        <div class="overlay hidden"></div>
+        <button class="scoreInstructionButton">VOIR TON SCORE</button>
+      </section>
     </main>
   </body>
 </html>
