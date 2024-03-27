@@ -1,5 +1,5 @@
 /***********VARIABLES - CLASS - OBJECTS***********/
-//Pictures variables
+//PICTIRES variables
 const onePiecePicture = document.getElementById("onePiecePicture");
 const spyFamilyPicture = document.getElementById("spyFamilyPicture");
 const ranmaDemiPicture = document.getElementById("ranmaDemiPicture");
@@ -30,7 +30,7 @@ class Manga {
   }
 }
 
-//Individual Books Config Objects
+//INDIVIDUAL BOOK CONFIG Objects
 const onePieceConfig = {
   title: "One Piece",
   sentences: [
@@ -115,7 +115,7 @@ const deadDeadDemonDestructionConfig = {
   author: "Inio Asano",
 };
 
-// Books Collection
+//COLLECTION BOOKS object
 const booksCollection = {
   onePiece: new Manga(onePieceConfig),
   spyFamily: new Manga(spyFamilyConfig),
@@ -124,180 +124,136 @@ const booksCollection = {
   attaqueDesTitans: new Manga(attaqueDesTitansConfig),
   deadDeadDemonDestruction: new Manga(deadDeadDemonDestructionConfig),
 };
-const onePiece = booksCollection.onePiece;
-const spyFamily = booksCollection.spyFamily;
-const ranmaDemi = booksCollection.ranmaDemi;
-const onePunchMan = booksCollection.onePunchMan;
-const attaqueDesTitans = booksCollection.attaqueDesTitans;
-const deadDeadDemonDestruction = booksCollection.deadDeadDemonDestruction;
 
-//BookButtons variables
+//BUTTONS variables
+let buttons = document.getElementsByTagName("button");
 let booksButtons = document.querySelectorAll(".booksButtons");
 
-//CHALLENGE CHOICES variables
 const choicesButtons = document.querySelectorAll(".choicesButtons");
+
+let charactersChoice = document.getElementById("charactersChoice");
+let sentencesChoice = document.getElementById("sentencesChoice");
+let formToValidateUserResponse = document.querySelector(
+  ".inputPlayerContenair"
+);
+let validationButton = document.getElementById("validation");
+
 //INSTRUCTIONS varibales
 let subject = document.querySelector(".subject");
-//BUTTON
-let validationButton = document.getElementById("#validation");
-let charactersChoice = document.querySelector(".charactersChoice");
+
+//INPUT RESPONSE PLAYER variables
+let responsePlayer = document.getElementById("inputPlayer");
+let inputFrame = document.querySelector(".response input");
+
+//MODAL VARIABLES, FUNCTIONS and EventsListener:
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const scoreInstructionButton = document.querySelector(
+  ".scoreInstructionButton"
+);
+const scorePlayer = document.querySelector(".scorePlayer");
+const okButton = document.querySelector(".okButton");
+
+function openModal() {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+function closeModalandReload() {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  window.location.reload();
+}
+
+function displayScoreInstructionButton() {
+  validationButton.style.display = "none";
+  scoreInstructionButton.style.display = "block";
+  scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
+}
+
+scoreInstructionButton.addEventListener("click", openModal);
+okButton.addEventListener("click", closeModalandReload);
 
 /***********GAME***********/
+let mangaUserChoice;
+let subjectValue;
+let indexCounter = 0;
 let score = 0;
-let onePieceButton = document.querySelector(".onePiece");
 
-function onePieceSelect() {
-  onePieceButton.addEventListener("click", challengeOnePieceChoice);
-}
-
-function validateResponseUser() {
-  validationButton.addEventListener("click", () => {
-    validationButton.value = "active";
+//generals game functions
+function buttonsDisable(buttons) {
+  buttons.forEach(function (button) {
+    button.disabled = true;
   });
 }
 
-function challengeOnePieceChoice() {
-  if ((charactersChoice.value = "active")) {
-    onePieceCharactersPlay();
-  } else {
-    onePieceSentencesPlay();
-}
-
-function onePieceCharactersPlay() {
-  onePiece.charactersList.forEach(function (character, index) {
-    subject.textContent = character;
-    if (validationButton.value = "active") {   
-      index++;
+function play() {
+  indexCounter = 0;
+  score = 0;
+  formToValidateUserResponse.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (responsePlayer.value == "") {
+      inputFrame.style.border = "solid 1.5px #f23a56";
+    } else {
+      responsePlayerVerify();
+      responsePlayer.value = "";
+      if (indexCounter < subjectValue.length - 1) {
+        indexCounter += 1;
+        subject.innerHTML = subjectValue[indexCounter];
+      } else {
+        indexCounter = 0;
+        subject.textContent = "DONE !";
+        responsePlayer.placeholder = "Clique pour VOIR TON SCORE !";
+        displayScoreInstructionButton();
+      }
     }
   });
-  console.log(score);
 }
 
-function onePieceSentencesPlay() {
-    onePiece.sentencesList.forEach(function (sentence, index) {
-        subject.texContent = sentence;
-        if(validationButton.value = "active") {
-            index++;
-        }
-    })
-}
-
-function letGame() {
-  onePieceSelect();
-}
-
-letGame();
-
-
-
-
-
-
-
-
-
-
-//MANGA AND CHALLENGE SELECTION
-/*let mangaUserChoice;
-function selectMangaUserChoice() {
-  booksButtons.forEach(function (bookButton, index) {
-    bookButton.addEventListener("click", () => {
-      if ((booksButtons[index].value = "active")) {
-        mangaUserChoice = booksButtons[index];
-        console.log(mangaUserChoice);
-      }
-    });
-  });
-}
-
-let challengeUserChoice;
-function selectChallengeUserChoice() {
-  choicesButtons.forEach(function (choiceButton, index) {
-    choiceButton.addEventListener("click", () => {
-      if ((choicesButtons[index] = "active")) {
-        challengeUserChoice = choicesButtons[index];
-        console.log(challengeUserChoice);
-        charactersPropose();
-      }
-    });
-  });
-}
-
-//LET GAME
-let charactersUserList;
-function charactersPropose() {
-  charactersUserList = booksCollection.mangaUserChoice.charactersList;
-  console.log(charactersUserList);
-}
-
-/*function browseChallengeButtons() {
-  choicesButtons.forEach(function (choiceButton) {
-    choiceButton.style.border = "solid 4px var(--lightRed)";
-  });
-}*/
-//Manga User Choice
-/*let mangaUserChoice;
-function mangaUserSelect() {
-  if ((booksButtons.value = "active")) {
-    mangaUserChoice = booksButtons;
-    console.log(mangaUserChoice);
+function responsePlayerVerify() {
+  if (responsePlayer.value === subjectValue[indexCounter]) {
+    score++;
+    console.log(score);
   }
-}*/
-/*
-    bookButton.style.border = "solid 4px var(--lightRed)";
-    if (book.classList.contains("onePiece")) {
-        mangaUserChoice = onePiece;
-      } else if (book.classList.contains("spyFamily")) {
-        mangaUserChoice = spyFamily;
-      } else if (book.classList.contains("ranmaDemi")) {
-        mangaUserChoice = ranmaDemi;
-      } else if (book.classList.contains("onePunchMan")) {
-        mangaUserChoice = onePunchMan;
-      } else if (book.classList.contains("attaqueDesTitans")) {
-        mangaUserChoice = attaqueDesTitans;
-      } else if (book.classList.contains("deadDeadDemonDestruction")) {
-        mangaUserChoice = deadDeadDemonDestruction;
-      }
-    })
-  );
-}*/
+}
 
+//specifics game functions
+function mangaUserChoiceSelect() {
+  booksButtons.forEach(function (bookButton) {
+    bookButton.addEventListener("click", () => {
+      bookButton.style.border = "solid 4px #f23a56";
+      mangaUserChoice = booksCollection[bookButton.id];
+      console.log(mangaUserChoice);
+      buttonsDisable(booksButtons);
+      challengeChoose();
+    });
+  });
+}
 
-/*Challenge User Choice
-let challengeUserChoice;
-function challengeUserSelect() {
-  choices.forEach((choices) =>
-    choices.addEventListener("click", () => {
-      debugger;
-      choices.style.border = "solid 4px var(--lightRed)";
-      if (choices.classList.contains("charactersChoice")) {
-        console.log({ mangaUserChoice });
-        if (mangaUserChoice.id === "One Piece") {
-          //fqire un id pour chqaue bookConfig
-          console.log(onePiece.charactersPropose());
-        } else if ((mangaUserChoice = spyFamily)) {
-          console.log(mangaUserChoice);
-          console.log(spyFamily.charactersPropose());
-        } else if ((mangaUserChoice = ranmaDemi)) {
-          console.log(ranmaDemi.charactersPropose());
-        } else if ((mangaUserChoice = onePunchMan)) {
-          console.log(onePunchMan.charactersPropose());
-        } else if ((mangaUserChoice = attaqueDesTitans)) {
-          console.log(attaqueDesTitans.charactersPropose());
-        } else if ((mangaUserChoice = deadDeadDemonDestruction)) {
-          console.log(deadDeadDemonDestruction.charactersPropose());
-        }
-      } else if (choices.classList.contains("sentencesChoice")) {
-        if ((mangaUserChoice = onePiece)) {
-          console.log(onePiece.sentencesPropose());
-        } else if ((mangaUserChoice = spyFamily)) {
-          console.log(spyFamily.sentencesPropose());
-        } else if (mangaUserChoice == ranmaDemi) {
-          console.log(ranmaDemi.sentencesPropose());
-        } else if (mangaUserChoice == onePunchMan) {
-          console.log(onePunchMan.sentencesPropose());
-        } else if ((mangaUserChoice = attaqueDesTitans)) {
-          console.log(attaqueDesTitans.sentencesPropose());
-        } else if ((mangaUserChoice = deadDeadDemonDestruction)) {
-          console.log(deadDeadDemonDestruction.sentencesPropose());
-*/
+function challengeChoose() {
+  charactersChoice.addEventListener("click", charactersPlay);
+
+  sentencesChoice.addEventListener("click", sentencesPlay);
+}
+
+function charactersPlay() {
+  console.log(mangaUserChoice);
+  console.log(mangaUserChoice.charactersList);
+  charactersChoice.style.border = "solid 4px #f23a56";
+  buttonsDisable(choicesButtons);
+  subjectValue = mangaUserChoice.charactersList;
+  subject.innerHTML = subjectValue[indexCounter];
+  play();
+}
+
+function sentencesPlay() {
+  console.log(mangaUserChoice);
+  console.log(mangaUserChoice.sentencesList);
+  subjectValue = mangaUserChoice.sentencesList;
+  subject.innerHTML = subjectValue[indexCounter];
+  play();
+}
+
+//let Game
+
+mangaUserChoiceSelect();
