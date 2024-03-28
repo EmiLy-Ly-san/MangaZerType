@@ -146,7 +146,7 @@ main {
 }
 
 .picturesContener {
-  width: 15%;
+  min-width: 15%;
   position: relative;
   display: flex;
   justify-content: center;
