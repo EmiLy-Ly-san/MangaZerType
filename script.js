@@ -1,5 +1,5 @@
 /***********VARIABLES - CLASS - OBJECTS***********/
-//PICTIRES variables
+//PICTURES variables
 const homePicture = document.getElementById("homePicture");
 const onePiecePicture = document.getElementById("onePiecePicture");
 const spyFamilyPicture = document.getElementById("spyFamilyPicture");
@@ -129,9 +129,8 @@ const booksCollection = {
 //BUTTONS variables
 let buttons = document.getElementsByTagName("button");
 let booksButtons = document.querySelectorAll(".booksButtons");
-
-const choicesButtons = document.querySelectorAll(".choicesButtons");
-
+let changeMangaChoice = document.querySelector(".changeMangaChoice");
+let choicesButtons = document.querySelectorAll(".choicesButtons");
 let charactersChoice = document.getElementById("charactersChoice");
 let sentencesChoice = document.getElementById("sentencesChoice");
 let formToValidateUserResponse = document.querySelector(
@@ -140,7 +139,9 @@ let formToValidateUserResponse = document.querySelector(
 let validationButton = document.getElementById("validation");
 
 //INSTRUCTIONS varibales
+let subjectHome = document.querySelector(".subject span");
 let subject = document.querySelector(".subject em");
+let subjectFrame = document.querySelector(".subject");
 
 //INPUT RESPONSE PLAYER variables
 let responsePlayer = document.getElementById("inputPlayer");
@@ -200,10 +201,14 @@ function play() {
       responsePlayer.value = "";
       if (indexCounter < subjectValue.length - 1) {
         indexCounter += 1;
+        subjectFrame.classList.add("animationDoubleBorder");
         subject.innerHTML = subjectValue[indexCounter];
       } else {
         indexCounter = 0;
-        subject.textContent = "DONE !";
+        subjectFrame.classList.remove("animationDoubleBorder");
+        subject.classList.add("hidden");
+        subjectHome.classList.remove("hidden");
+        subjectHome.textContent = "DONE !";
         responsePlayer.placeholder = "Clique pour VOIR TON SCORE !";
         displayScoreInstructionButton();
       }
@@ -218,45 +223,59 @@ function responsePlayerVerify() {
   }
 }
 
-//specifics game functions
+//specifics/choices game functions
 function mangaUserChoiceSelect() {
   booksButtons.forEach(function (bookButton) {
     bookButton.addEventListener("click", () => {
-      bookButton.style.border = "solid 4px #f23a56";
+      bookButton.classList.add("buttonSelected");
       mangaUserChoice = booksCollection[bookButton.id];
       mangaUserChoice.picture.classList.remove("hidden");
       homePicture.classList.add("hidden");
+      changeMangaChoice.classList.remove("hidden");
+      changeMangaChoice.addEventListener("click", mangaChoiceChange);
       console.log(mangaUserChoice);
       buttonsDisable(booksButtons);
-      challengeChoose();
+      //challengeChoose();
     });
   });
 }
 
-function challengeChoose() {
+function mangaChoiceChange() {
+  window.location.reload();
+}
+
+/*function challengeChoose() {
   charactersChoice.addEventListener("click", charactersPlay);
 
   sentencesChoice.addEventListener("click", sentencesPlay);
-}
+}*/
 
 function charactersPlay() {
   console.log(mangaUserChoice);
   console.log(mangaUserChoice.charactersList);
-  charactersChoice.style.border = "solid 4px #f23a56";
-  buttonsDisable(choicesButtons);
+  charactersChoice.classList.add("buttonSelected");
+  sentencesChoice.classList.remove("buttonSelected");
   subjectValue = mangaUserChoice.charactersList;
   subject.innerHTML = subjectValue[indexCounter];
+  subjectHome.classList.add("hidden");
+  subject.classList.remove("hidden");
   play();
 }
 
 function sentencesPlay() {
   console.log(mangaUserChoice);
   console.log(mangaUserChoice.sentencesList);
+  charactersChoice.classList.remove("buttonSelected");
+  sentencesChoice.classList.add("buttonSelected");
   subjectValue = mangaUserChoice.sentencesList;
   subject.innerHTML = subjectValue[indexCounter];
+  subjectHome.classList.add("hidden");
+  subject.classList.remove("hidden");
   play();
 }
 
 //let Game
 
 mangaUserChoiceSelect();
+charactersChoice.addEventListener("click", charactersPlay);
+sentencesChoice.addEventListener("click", sentencesPlay);
