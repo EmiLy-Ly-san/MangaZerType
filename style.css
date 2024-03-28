@@ -370,10 +370,6 @@ main {
     width: 85%;
   }
 
-  /*.subject {
-    margin-top: 10rem;
-  }
-*/
   .arrow {
     padding: 0.2rem;
   }
@@ -383,12 +379,6 @@ main {
     font-size: 16px;
   }
 }
-
-/*@media (max-width: 740px) {
-  .subject {
-    margin-top: 8rem;
-  }
-}*/
 
 @media (max-width: 620px) {
   .challengeChoices {

@@ -235,7 +235,6 @@ function mangaUserChoiceSelect() {
       changeMangaChoice.addEventListener("click", mangaChoiceChange);
       console.log(mangaUserChoice);
       buttonsDisable(booksButtons);
-      //challengeChoose();
     });
   });
 }
@@ -243,12 +242,6 @@ function mangaUserChoiceSelect() {
 function mangaChoiceChange() {
   window.location.reload();
 }
-
-/*function challengeChoose() {
-  charactersChoice.addEventListener("click", charactersPlay);
-
-  sentencesChoice.addEventListener("click", sentencesPlay);
-}*/
 
 function charactersPlay() {
   console.log(mangaUserChoice);
@@ -275,7 +268,6 @@ function sentencesPlay() {
 }
 
 //let Game
-
 mangaUserChoiceSelect();
 charactersChoice.addEventListener("click", charactersPlay);
 sentencesChoice.addEventListener("click", sentencesPlay);
