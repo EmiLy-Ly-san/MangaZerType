@@ -68,7 +68,8 @@ header {
     inset 0px 0px 0 11.5px var(--mainGreen);
   width: 60%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -146,7 +147,7 @@ main {
 }
 
 .picturesContener {
-  min-width: 15%;
+  width: 20%;
   position: relative;
   display: flex;
   justify-content: center;
@@ -162,6 +163,13 @@ main {
   bottom: 0;
   right: 0;
   margin: auto;
+}
+
+#rojiPicture,
+#ichikoEtNikoPicture,
+#fukunekoPicture {
+  width: 150%;
+  left: -25%;
 }
 
 .subject {

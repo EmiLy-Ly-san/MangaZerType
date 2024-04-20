@@ -3,14 +3,10 @@
 const homePicture = document.getElementById("homePicture");
 const onePiecePicture = document.getElementById("onePiecePicture");
 const spyFamilyPicture = document.getElementById("spyFamilyPicture");
-const ranmaDemiPicture = document.getElementById("ranmaDemiPicture");
-const onePunchManPicture = document.getElementById("onePuchManPicture");
-const attaqueDesTitansPicture = document.getElementById(
-  "attaqueDesTitansPicture"
-);
-const deadDeadDemonDestructionPicture = document.getElementById(
-  "deaDeadDemonDestructionPicture"
-);
+const chiPicture = document.getElementById("chiPicture");
+const fukunekoPicture = document.getElementById("fukunekoPicture");
+const ichikoEtNikoPicture = document.getElementById("ichikoEtNikoPicture");
+const rojiPicture = document.getElementById("rojiPicture");
 
 //CLASS
 class Manga {
@@ -60,70 +56,70 @@ const spyFamilyConfig = {
   author: "Tatsuya Endo",
 };
 
-const ranmaDemiConfig = {
-  title: "Ranma 1/2",
+const chiConfig = {
+  title: "Chi",
   sentences: [
-    "Arrrgh! Les pandas ne peuvent pas parler.",
-    "Voilà, Ranma, comme tu le souhaitais : un joli minou en pleine face !",
-    "Ranma, je ne peux pas croire que tu sois jaloux d'un cochon..",
-    "Ou diable suis-je maintenant ?",
-    "Akane est vraiment une fille adorable. C’est juste une maniaque violente.",
+    "Ze le savais ! Voilà la proie ! Elle fqit cui cui !",
+    "Il faut que ze fasse tomber ça aussi !",
+    "Les animaux de compagnie sont interdits dans l'immeuble. Si vous voulez garder vos chats... Il va falloir quitter votre appartement.",
+    "C'est dans la boîte pleine de petutes billes qu'il faut faire pipi. Maman va te gronder !",
+    "Mais non ! Ze suis pas un chat ! Ze suis Chi !",
   ],
-  characters: ["Ranma", "Akane", "Ryoga", "Shampoo", "Genma"],
-  picture: ranmaDemiPicture,
-  author: "Rumiko Takahashi",
+  characters: ["Youhei", "Minou", "Noiraud", "Chi", "Monsieur Yamada"],
+  picture: chiPicture,
+  author: "Konami Kanata",
 };
 
-const onePunchManConfig = {
-  title: "One-Punch Man",
+const fukunekoConfig = {
+  title: "Fukuneko",
   sentences: [
-    "Tu dois t'entraîner comme un diable jusqu'au point où tes cheveux tombent. C'est la seule façon de devenir vraiment fort.",
-    "Les êtres humains sont forts parce que nous pouvons nous changer.",
-    "Je suis un cyborg solitaire qui se bat pour la justice !",
-    "Je laisserai les problèmes de demain au moi de demain.",
-    "Si tu as le temps de t'apitoyer, tu as le temps de t'ameliorer.",
+    "Elle s'est introduite dans la maison ! Regarde...",
+    "J'ai jamais accepté, moi de déménager dans ce coin paumé où j'ai aucun ami !",
+    "Je voudrais te demander à propos de cette histoire de Fukuneko et de cette petite fille devenue déesse... Est-ce que c'est une histoire vraie ?",
+    "J'ai l'impression que ça pourrait bien avoir un rapport avec la disparition de maman...",
+    "Chacun trouve son bonheur où il peut !",
   ],
-  characters: ["Saitama", "Genos", "Tatsumaki", "Blast", "Suiko"],
-  picture: onePunchManPicture,
-  author: "Yusuke Murata",
+  characters: ["Ako", "Luna", "Yôta", "Fuku", "Ichirô"],
+  picture: fukunekoPicture,
+  author: "Mari Matsuzawa",
 };
 
-const attaqueDesTitansConfig = {
-  title: "L'Attaque des Titans",
+const ichikoEtNikoConfig = {
+  title: "Ichiko et Niko",
   sentences: [
-    "Les fous ce sont ceux qui acceptent de vivre comme du bétail.",
-    "Bats-toi. Si tu perds tu meurs, si tu gagne tu vis.",
-    "Si tu entres dans les troupes de patrouille, je te suivrai là-bas. Tu mourras rapidement si je ne suis pas là.",
-    "Pardon Eren. J'ai eu un instant de faiblesse, mais ça ne se reproduira plus. Si je mourais... Je ne pourrais plus... penser à toi.",
-    " Ce dont tu as le plus besoin pour l'instant, ce n'est pas de théorie, mais d'une leçon pratique.",
+    "Au village pocket, une maison champignon.",
+    "Tout le circuit de la maison est Mocco touché.",
+    "C'est Mocco impossible.",
+    "Pas une seconde je ne souhaiterais une autre vie que la mienne.",
+    " Le parapluie Pwap-Pwap est trop pratique !",
   ],
-  characters: ["Eren", "Mikasa", "Armin", "Levi", "Sasha"],
-  picture: attaqueDesTitansPicture,
-  author: "Hajime Isayama",
+  characters: ["Ichiko", "Niko", "Mocco", "Josette", "Ripper"],
+  picture: ichikoEtNikoPicture,
+  author: "Lunlun Yamamoto",
 };
 
-const deadDeadDemonDestructionConfig = {
-  title: "Dead Dead Demon Destruction",
+const rojiConfig = {
+  title: "Roji",
   sentences: [
-    "Ayez tous les chargeurs d'armes chargés de guimauve !",
-    "Ils passent leur temps sur les reseaux sociaux a ecrire des commentaires sur des vedettes de tele sqns interet !.",
-    "On va tous mourrir, nous, et vous, les humains...",
-    "Un vaisseau envahisseur de taille moyenne et de tres nombreux petits appareils ont ete detectes.",
-    "On finira tous broyes par cette societe elististe ou seuls les diplomes comptent...",
+    "Hi hi ! C'est vrai qu'on se serait crues au pays des merveilles !",
+    "Ah là là, quelle gaffeuse !",
+    "La ville des humains et notre pays sont au même endroit !",
+    "C'est un vrai monde souterrain !!",
+    "Y a pas à dire, tu dessines comme un pied...",
   ],
-  characters: ["Kadode", "Oran", "Isobeyan", "Ooba", "Hiroshi"],
-  picture: deadDeadDemonDestructionPicture,
-  author: "Inio Asano",
+  characters: ["Azusa", "Blanche", "Yuzu", "Karin", "Kokoro"],
+  picture: rojiPicture,
+  author: "Keisuke Kotobuki",
 };
 
 //COLLECTION BOOKS object
 const booksCollection = {
   onePiece: new Manga(onePieceConfig),
   spyFamily: new Manga(spyFamilyConfig),
-  ranmaDemi: new Manga(ranmaDemiConfig),
-  onePunchMan: new Manga(onePunchManConfig),
-  attaqueDesTitans: new Manga(attaqueDesTitansConfig),
-  deadDeadDemonDestruction: new Manga(deadDeadDemonDestructionConfig),
+  chi: new Manga(chiConfig),
+  fukuneko: new Manga(fukunekoConfig),
+  ichikoEtNiko: new Manga(ichikoEtNikoConfig),
+  roji: new Manga(rojiConfig),
 };
 
 //BUTTONS variables
