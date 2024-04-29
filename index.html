@@ -61,13 +61,19 @@
             <img class="hidden picture" src="picture/roji.jpg" id="rojiPicture" alt="Image de Roji et ses amis">
           </div>
         </div>            
-        <div class="subject"><span>MangAzerType !</span><em class="animationTextSlide hidden"></em></div>
+        <div class="subject" onselectstart="return false"
+        oncut="return false"
+        oncopy="return false"
+        onpaste="return false"
+        ondrag="return false"
+        ondrop="return false"
+       ><span>MangAzerType !</span><em class="animationTextSlide hidden"></em></div>
         <form class="inputPlayerContenair">
           <div class="response">
             
               <img class="arrow" src="picture/arrow.png" alt="Fleche pointant vers la droite pour indiquer ou ecrire">
             
-            <input type="text" id="inputPlayer" name="inputPlayer" placeholder="Recopie ici !"></input>
+            <input type="text" id="inputPlayer" name="inputPlayer" placeholder="Recopie ici !" autocomplete="off"></input>
           </div>
           <button type="submit" id="validation">Valider</button>
         
