@@ -6,7 +6,7 @@
   --black: #000000;
   --lightRed: #f87217;
   --mainGreen: #97dbca;
-  --lightGreen: #b7f0df;
+  --lightGreen: #c2f7e8;
   --realGreen: #00c090;
   /*TEXT CONFIGURATION*/
   --general-font: "Hind Vadodara", sans-serif;
@@ -55,9 +55,59 @@ button:disabled {
   border: solid 2px var(--lightGreen);
 }
 
+.button {
+  width: 150px;
+  height: 50px;
+  border-radius: 0.625rem;
+  box-shadow: inset 0px 0px 0 4px var(--lightGreen);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--white);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.button::before {
+  position: absolute;
+  content: "";
+  width: 180%;
+  height: 50%;
+  transform: rotate(45deg);
+  background: var(--realGreen);
+}
+.button:hover::before {
+  animation: animateBorder 1s linear;
+  animation-fill-mode: backwards;
+}
+.button::after {
+  position: absolute;
+  content: "";
+  inset: 4px;
+  background: var(--white);
+}
+
+@keyframes animateBorder {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(180deg);
+  }
+}
+.button span {
+  font-size: var(--body-font-size);
+  font-weight: var(--body-highlight-font-weight);
+  line-height: var(--body-line-height);
+  z-index: 10;
+}
+
 .buttonSelected {
-  box-shadow: inset 0px 0px 0 4px var(--lightRed);
-  color: var(--black);
+  box-shadow: inset 0px 0px 0 4px var(--realGreen);
+}
+
+.buttonDisabled {
+  cursor: not-allowed;
 }
 
 .gameContenair, .titleContenair {
@@ -94,11 +144,19 @@ h1 {
   margin: 0;
 }
 
-.booksContener {
+.manga {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.booksContainer {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 2rem;
   width: 100%;
   margin-top: 1rem;
 }
@@ -112,6 +170,14 @@ h1 {
   font-style: italic;
   border: none;
   box-shadow: none;
+}
+
+.challenge {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 main {
