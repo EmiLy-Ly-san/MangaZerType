@@ -124,7 +124,9 @@ const booksCollection = {
 
 //BUTTONS variables
 let buttons = document.getElementsByTagName("button");
+let manga = document.querySelector(".manga");
 let booksButtons = document.querySelectorAll(".booksButtons");
+let challenge = document.querySelector(".challenge");
 let changeMangaChoice = document.querySelector(".changeMangaChoice");
 let choicesButtons = document.querySelectorAll(".choicesButtons");
 let charactersChoice = document.getElementById("charactersChoice");
@@ -179,9 +181,9 @@ let indexCounter = 0;
 let score = 0;
 
 //generals game functions
-function buttonsDisable(buttons) {
+function buttonsDisabled(buttons) {
   buttons.forEach(function (button) {
-    button.disabled = true;
+    button.classList.add("buttonsDisabled");
   });
 }
 
@@ -230,7 +232,9 @@ function mangaUserChoiceSelect() {
       changeMangaChoice.classList.remove("hidden");
       changeMangaChoice.addEventListener("click", mangaChoiceChange);
       console.log(mangaUserChoice);
-      buttonsDisable(booksButtons);
+      manga.style.display = "none";
+      charactersChoice.addEventListener("click", charactersPlay);
+      sentencesChoice.addEventListener("click", sentencesPlay);
     });
   });
 }
@@ -242,6 +246,7 @@ function mangaChoiceChange() {
 function charactersPlay() {
   console.log(mangaUserChoice);
   console.log(mangaUserChoice.charactersList);
+  buttonsDisabled(choicesButtons);
   charactersChoice.classList.add("buttonSelected");
   sentencesChoice.classList.remove("buttonSelected");
   subjectValue = mangaUserChoice.charactersList;
@@ -249,6 +254,7 @@ function charactersPlay() {
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
   play();
+  challenge.style.visibility = "hidden";
 }
 
 function sentencesPlay() {
@@ -261,6 +267,7 @@ function sentencesPlay() {
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
   play();
+  challenge.style.display = "none";
 }
 
 //let Game
