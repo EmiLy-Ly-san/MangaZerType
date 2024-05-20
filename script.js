@@ -242,6 +242,7 @@ function mangaChoiceChange() {
 function charactersPlay() {
   console.log(mangaUserChoice);
   console.log(mangaUserChoice.charactersList);
+  buttonsDisable(choicesButtons);
   charactersChoice.classList.add("buttonSelected");
   sentencesChoice.classList.remove("buttonSelected");
   subjectValue = mangaUserChoice.charactersList;

@@ -3,11 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mangazertpe HTML</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Vadodara:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
+    <title>Mangazertype</title>
+
+    <link rel="stylesheet" href="style/css/style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -16,25 +14,29 @@
         <h1>MangAzerType</h1>
         <p>Jeu éducatif pour les 6-11 ans</p>
       </div>
-      <div class="instruction">
-        <p>Choisis ton manga !</p>
+      <div class="instructionGeneral">
+        <p >Pour t'entraîner à écrire au clavier, tape les noms des personnages ou les phrases cultes de tes mangas préférés !</p>
       </div>
-      <div class= "booksContener">
-        <button class= "booksButtons" id="onePiece">One Piece</button>
-        <button class= "booksButtons" id="spyFamily">Spy Family</button>
-        <button class= "booksButtons" id="chi">Chi</button>
-        <button class= "booksButtons" id="fukuneko">Fukuneko</button>
-        <button class= "booksButtons" id="ichikoEtNiko">Ichiko et Niko</button>
-        <button class= "booksButtons" id="roji">Roji</button>
-        <button class="changeMangaChoice hidden">Je veux choisir un autre manga !</button>
-      </div>
+      
     </header>
     <main>
       <section class="gameContenair">
-        <div class="instruction">
-          <p >Pour t'entraîner à écrire au clavier, tape les noms des personnages ou les phrases cultes de tes mangas préférés !</p>
+        <div class="instructionManga">
+          <p>Choisis ton manga !</p>
         </div>
-        <div class="challengeChoices">
+        <div class= "booksContener">
+          <button class= "booksButtons" id="onePiece">One Piece</button>
+          <button class= "booksButtons" id="spyFamily">Spy Family</button>
+          <button class= "booksButtons" id="chi">Chi</button>
+          <button class= "booksButtons" id="fukuneko">Fukuneko</button>
+          <button class= "booksButtons" id="ichikoEtNiko">Ichiko et Niko</button>
+          <button class= "booksButtons" id="roji">Roji</button>
+          <button class="changeMangaChoice hidden">Je veux choisir un autre manga !</button>
+        </div>
+        <div class="instructionChallenge">
+          <p>Choisis ton challenge !</p>
+        </div>
+        <div class="challengeChoices">         
             <button class="choicesButtons" id="charactersChoice">PERSONNAGES</button>            
             <button class="choicesButtons" id="sentencesChoice">PHRASES</button>   
         </div>
