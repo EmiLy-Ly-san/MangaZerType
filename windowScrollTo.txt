@@ -1,0 +1,4 @@
+1. mettre des id sur la boite de la section / la ou je veux aller
+2. Au click des bouttons , je recupere l'élement de la section ou je veux aller 
+3. Récuperer la position top donc le y (0, y), element.offsetTop //par rapprt à la fenetre ? verifier
+4.Executer window.scrollTo(x, y, {behavior: "smooth"}) donc x=0 et y=maVariableDansLaquelleJaiMisLaValeurDeOssetTop 

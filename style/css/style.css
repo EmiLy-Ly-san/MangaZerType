@@ -110,6 +110,7 @@ button span {
 
 .buttonSelected {
   box-shadow: inset 0px 0px 0 4px var(--realGreen);
+  color: var(--realGreen);
 }
 
 .buttonDisabled {
@@ -337,8 +338,9 @@ main {
   box-shadow: inset 0px 0px 0 4px var(--paleRed);
   font-family: var(--general-font);
   margin-top: 2rem;
+  transition: box-shadow 300ms ease;
 }
-.validation.validateAction {
+.validation.validationAnimation {
   box-shadow: inset 0px 0px 0 4px var(--lightRed);
 }
 .validation::before {

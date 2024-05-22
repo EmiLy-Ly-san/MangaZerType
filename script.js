@@ -193,7 +193,11 @@ function play() {
     if (responsePlayer.value == "") {
       inputFrame.style.border = "solid 1.5px #f23a56";
     } else {
-      validationButton.classList.add("validateAction");
+      validationButton.classList.add("validationAnimation");
+      validationButton.addEventListener("transitionend", () => {
+        validationButton.classList.remove("validationAnimation");
+      });
+
       responsePlayerVerify();
       responsePlayer.value = "";
       if (indexCounter < subjectValue.length - 1) {
@@ -276,9 +280,9 @@ mangaUserChoiceSelect();
 charactersChoice.addEventListener("click", charactersPlay);
 sentencesChoice.addEventListener("click", sentencesPlay);
 
-responsePlayer.addEventListener("focus", () => {
+/*responsePlayer.addEventListener("focus", () => {
   validationButton.classList.remove("validateAction");
-});
+});*/
 
 const mangaStape = document.querySelector(".mangaStape");
 const challengeStape = document.querySelector(".challengeStape");
