@@ -5,6 +5,7 @@
   --white: #ffffff;
   --black: #000000;
   --lightRed: #f87217;
+  --paleRed: #fcd6bc;
   --mainGreen: #97dbca;
   --lightGreen: #c2f7e8;
   --realGreen: #00c090;
@@ -34,7 +35,7 @@ body {
   position: relative;
 }
 
-button {
+/*button {
   width: 150px;
   height: 40px;
   border: solid 2px var(--mainGreen);
@@ -46,21 +47,23 @@ button {
   text-align: center;
   background-color: var(--white);
   cursor: pointer;
-}
-button:hover {
-  border: solid 2px var(--lightRed);
-  box-shadow: inset 0px 0px 0 2px var(--lightRed);
-}
-button:disabled {
-  border: solid 2px var(--lightGreen);
-}
 
-.button {
+  &:hover {
+    border: solid 2px var(--lightRed);
+    box-shadow: inset 0px 0px 0 2px var(--lightRed);
+  }
+
+  &:disabled {
+    border: solid 2px var(--lightGreen);
+  }
+}*/
+button {
   width: 150px;
   height: 50px;
   border-radius: 0.625rem;
   box-shadow: inset 0px 0px 0 4px var(--lightGreen);
   display: flex;
+  border: none;
   align-items: center;
   justify-content: center;
   background-color: var(--white);
@@ -68,7 +71,7 @@ button:disabled {
   position: relative;
   overflow: hidden;
 }
-.button::before {
+button::before {
   position: absolute;
   content: "";
   width: 180%;
@@ -76,15 +79,18 @@ button:disabled {
   transform: rotate(45deg);
   background: var(--realGreen);
 }
-.button:hover::before {
+button:hover::before {
   animation: animateBorder 1s linear;
   animation-fill-mode: backwards;
 }
-.button::after {
+button::after {
   position: absolute;
   content: "";
   inset: 4px;
   background: var(--white);
+}
+button:disabled {
+  border: solid 2px var(--lightGreen);
 }
 
 @keyframes animateBorder {
@@ -95,7 +101,7 @@ button:disabled {
     transform: rotate(180deg);
   }
 }
-.button span {
+button span {
   font-size: var(--body-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: var(--body-line-height);
@@ -121,6 +127,15 @@ button:disabled {
   padding: 1rem;
 }
 
+.copyContainer, .gamePlace, .challenge, .manga {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+}
+
 header {
   display: flex;
   flex-direction: column;
@@ -144,14 +159,6 @@ h1 {
   margin: 0;
 }
 
-.manga {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 .booksContainer {
   display: flex;
   flex-flow: row wrap;
@@ -172,14 +179,6 @@ h1 {
   box-shadow: none;
 }
 
-.challenge {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-
 main {
   width: 100%;
   display: flex;
@@ -190,9 +189,7 @@ main {
   box-shadow: inset 0px 0px 0 10px var(--white), inset 0px 0px 0 0.5px var(--mainGreen);
 }
 
-.instructionGeneral,
-.instructionManga,
-.instructionChallenge {
+.instruction {
   font-size: var(--body-highlight-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: 2rem;
@@ -200,7 +197,25 @@ main {
   width: 40%;
 }
 
-.instructionChallenge p {
+.underlineInstruction {
+  position: relative;
+}
+.underlineInstruction::before {
+  content: "";
+  position: absolute;
+  width: 60%;
+  height: 4px;
+  bottom: -6px;
+  left: 20%;
+  background-color: var(--lightRed);
+  transform: scale(0);
+  transition: transform 1s ease;
+}
+.underlineInstruction.underlineAnimation::before {
+  transform: scale(1);
+}
+
+.instructionChallenge {
   margin-top: 5rem;
 }
 
@@ -219,7 +234,6 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
-  margin: auto;
   padding-top: 1rem;
 }
 
@@ -227,7 +241,7 @@ main {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -20%;
   bottom: 0;
   right: 0;
   margin: auto;
@@ -240,6 +254,15 @@ main {
   left: -25%;
 }
 
+.gamePlace {
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+}
+
+.copyContainer {
+  width: 70%;
+}
+
 .subject {
   font-family: var(--general-font);
   font-size: var(--body-font-size);
@@ -247,9 +270,8 @@ main {
   line-height: var(--body-highlight-line-height);
   border: solid 3px var(--mainGreen);
   border-radius: 1.25rem;
-  width: 72%;
-  margin-top: 8rem;
-  margin-bottom: 2.125rem;
+  width: 100%;
+  margin-bottom: 2rem;
   text-align: center;
   padding: 0.5rem;
 }
@@ -283,7 +305,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 72%;
+  width: 100%;
 }
 
 .response input, .response {
@@ -311,12 +333,19 @@ main {
   line-height: var(--body-highlight-line-height);
 }
 
-#validation {
-  border-radius: 1.25rem;
-  width: 24%;
-  margin-top: 2.125rem;
-  background-color: var(--mainGreen);
+.validation {
+  box-shadow: inset 0px 0px 0 4px var(--paleRed);
   font-family: var(--general-font);
+  margin-top: 2rem;
+}
+.validation.validateAction {
+  box-shadow: inset 0px 0px 0 4px var(--lightRed);
+}
+.validation::before {
+  background: var(--lightRed);
+}
+.validation::after {
+  background: var(--paleRed);
 }
 
 .scoreContenair {
