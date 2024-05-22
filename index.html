@@ -22,26 +22,28 @@
     <main>
       <section class="gameContenair">
         <div class="manga">
-          <div class="instructionManga">
-            <p>Choisis ton manga !</p>
+          <div class="instruction">
+            <p class=" instructionManga">1. Choisis ton manga !</p>
           </div>
           <div class= "booksContainer">
-            <div class= "button booksButtons" id="onePiece"><span>One Piece</span></div>
-            <div class= "button booksButtons" id="spyFamily"><span>Spy Family</span></div>
-            <div class= "button booksButtons" id="chi"><span>Chi</span></div>
-            <div class= "button booksButtons" id="fukuneko"><span>Fukuneko</span></div>
-            <div class= "button " id="ichikoEtNiko"><span>Ichiko et Niko</span></div>
-            <div class= "button booksButtons" id="roji"><span>Roji</span></div>    
+            <button class= "button booksButtons" id="onePiece"><span>One Piece</span></button>
+            <button class= "button booksButtons" id="spyFamily"><span>Spy Family</span></button>
+            <button class= "button booksButtons" id="chi"><span>Chi</span></button>
+            <button class= "button booksButtons" id="fukuneko"><span>Fukuneko</span></button>
+            <button class= "button booksButtons" id="ichikoEtNiko"><span>Ichiko et Niko</span></button>
+            <button class= "button booksButtons" id="roji"><span>Roji</span></button>    
           </div>  
+          <div class="changeMangaChoice hidden">Je veux choisir un autre manga !</div>
+
         </div>
         <div class="changeMangaChoice hidden">Je veux choisir un autre manga !</div>
         <div class="challenge">
-          <div class="instructionChallenge">
-            <p>Choisis ton challenge !</p>
+          <div class="instruction instructionChallenge">
+            <p>2. Choisis ton challenge !</p>
           </div>
           <div class="challengeChoices">         
-              <div class="button choicesButtons" id="charactersChoice"><span>PERSONNAGES</span></div>            
-              <div class="button choicesButtons" id="sentencesChoice"><span>PHRASES</span></div>   
+              <button class="button choicesButtons" id="charactersChoice"><span>PERSONNAGES</span></button>            
+              <button class="button choicesButtons" id="sentencesChoice"><span>PHRASES</span></button>   
           </div>
       </div>
         <div class="picturesContener">
@@ -66,30 +68,31 @@
           <div>
             <img class="hidden picture" src="picture/roji.jpg" id="rojiPicture" alt="Image de Roji et ses amis">
           </div>
-        </div>            
-        <div class="subject" onselectstart="return false"
-        oncut="return false"
-        oncopy="return false"
-        onpaste="return false"
-        ondrag="return false"
-        ondrop="return false"
-       ><span>MangAzerType !</span><em class="animationTextSlide hidden"></em></div>
-        <form class="inputPlayerContenair">
-          <div class="response">
-            
-              <img class="arrow" src="picture/arrow.png" alt="Fleche pointant vers la droite pour indiquer ou ecrire">
-            
-            <input type="text" id="inputPlayer" name="inputPlayer" placeholder="Recopie ici !" autocomplete="off"></input>
+        </div>  
+        <div class="gamePlace">
+          <div class="instruction instructionGame">
+            <p>3. Recopie la proposition !</p>
           </div>
-          <button type="submit" id="validation">Valider</button>
-        
-          
+          <div class="copyContainer">         
+            <div class="subject" onselectstart="return false"
+            oncut="return false"
+            oncopy="return false"
+            onpaste="return false"
+            ondrag="return false"
+            ondrop="return false"
+            ><span>MangAzerType !</span><em class="animationTextSlide hidden"></em></div>
+            <form class="inputPlayerContenair">
+              <div class="response">  
+                  <img class="arrow" src="picture/arrow.png" alt="Fleche pointant vers la droite pour indiquer ou ecrire">
+                  <input type="text" id="inputPlayer" name="inputPlayer" placeholder="Recopie ici !" autocomplete="off"></input>
+              </div>          
+              <button type="submit" id="validation"><span>Valider</span></button>
+            </form>
+          </div> 
+        </div>           
         <div class="modal hidden">
-          
-            <p class="scorePlayer"></p>
-            <button class="okButton">OK</button>    
-          </div>
-        
+          <p class="scorePlayer"></p>
+          <button class="okButton">OK</button>            
         <div class="overlay hidden"></div>
         <button class="scoreInstructionButton">VOIR TON SCORE</button>
       </section>

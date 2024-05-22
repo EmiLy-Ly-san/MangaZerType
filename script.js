@@ -124,9 +124,7 @@ const booksCollection = {
 
 //BUTTONS variables
 let buttons = document.getElementsByTagName("button");
-let manga = document.querySelector(".manga");
 let booksButtons = document.querySelectorAll(".booksButtons");
-let challenge = document.querySelector(".challenge");
 let changeMangaChoice = document.querySelector(".changeMangaChoice");
 let choicesButtons = document.querySelectorAll(".choicesButtons");
 let charactersChoice = document.getElementById("charactersChoice");
@@ -181,9 +179,9 @@ let indexCounter = 0;
 let score = 0;
 
 //generals game functions
-function buttonsDisabled(buttons) {
+function buttonsDisable(buttons) {
   buttons.forEach(function (button) {
-    button.classList.add("buttonsDisabled");
+    button.disabled = true;
   });
 }
 
@@ -232,9 +230,7 @@ function mangaUserChoiceSelect() {
       changeMangaChoice.classList.remove("hidden");
       changeMangaChoice.addEventListener("click", mangaChoiceChange);
       console.log(mangaUserChoice);
-      manga.style.display = "none";
-      charactersChoice.addEventListener("click", charactersPlay);
-      sentencesChoice.addEventListener("click", sentencesPlay);
+      buttonsDisable(booksButtons);
     });
   });
 }
@@ -246,7 +242,7 @@ function mangaChoiceChange() {
 function charactersPlay() {
   console.log(mangaUserChoice);
   console.log(mangaUserChoice.charactersList);
-  buttonsDisabled(choicesButtons);
+  buttonsDisable(choicesButtons);
   charactersChoice.classList.add("buttonSelected");
   sentencesChoice.classList.remove("buttonSelected");
   subjectValue = mangaUserChoice.charactersList;
@@ -254,7 +250,6 @@ function charactersPlay() {
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
   play();
-  challenge.style.visibility = "hidden";
 }
 
 function sentencesPlay() {
@@ -267,10 +262,12 @@ function sentencesPlay() {
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
   play();
-  challenge.style.display = "none";
 }
 
 //let Game
 mangaUserChoiceSelect();
 charactersChoice.addEventListener("click", charactersPlay);
 sentencesChoice.addEventListener("click", sentencesPlay);
+
+const instructionManga = document.querySelector(".instructionManga");
+instructionManga.classList.add("underlinedInstruction");

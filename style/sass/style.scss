@@ -10,6 +10,7 @@
   --white: #ffffff;
   --black: #000000;
   --lightRed: #f87217;
+  --paleRed: #fcd6bc;
   --mainGreen: #97dbca;
   --lightGreen: #c2f7e8;
   --realGreen: #00c090;
@@ -39,7 +40,7 @@ body {
   position: relative;
 }
 
-button {
+/*button {
   width: 150px;
   height: 40px;
   border: solid 2px var(--mainGreen);
@@ -60,14 +61,15 @@ button {
   &:disabled {
     border: solid 2px var(--lightGreen);
   }
-}
+}*/
 
-.button {
+button {
   width: 150px;
   height: 50px;
   border-radius: 0.625rem;
   box-shadow: inset 0px 0px 0 4px var(--lightGreen);
   display: flex;
+  border: none;
   align-items: center;
   justify-content: center;
   background-color: var(--white);
@@ -95,6 +97,10 @@ button {
     inset: 4px;
     background: var(--white);
   }
+
+  &:disabled {
+    border: solid 2px var(--lightGreen);
+  }
 }
 
 @keyframes animateBorder {
@@ -106,7 +112,7 @@ button {
   }
 }
 
-.button span {
+button span {
   font-size: var(--body-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: var(--body-line-height);
@@ -121,7 +127,7 @@ button {
   cursor: not-allowed;
 }
 
-%styleContainer {
+%styleGeneralContainer {
   border: solid 3px var(--mainGreen);
   border-radius: 1.25rem;
   display: flex;
@@ -130,6 +136,15 @@ button {
   width: 40%;
   margin: 1rem;
   padding: 1rem;
+}
+
+%styleSubContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
 }
 
 header {
@@ -141,7 +156,7 @@ header {
 }
 
 .titleContenair {
-  @extend %styleContainer;
+  @extend %styleGeneralContainer;
   box-shadow: inset 0px 0px 0 10px var(--white),
     inset 0px 0px 0 11.5px var(--mainGreen);
 }
@@ -158,11 +173,7 @@ h1 {
 }
 
 .manga {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  @extend %styleSubContainer;
 }
 
 .booksContainer {
@@ -187,11 +198,7 @@ h1 {
 }
 
 .challenge {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  @extend %styleSubContainer;
 }
 
 main {
@@ -201,19 +208,33 @@ main {
 }
 
 .gameContenair {
-  @extend %styleContainer;
+  @extend %styleGeneralContainer;
   box-shadow: inset 0px 0px 0 10px var(--white),
     inset 0px 0px 0 0.5px var(--mainGreen);
 }
 
-.instructionGeneral,
-.instructionManga,
-.instructionChallenge {
+.instruction {
   font-size: var(--body-highlight-font-size);
   font-weight: var(--body-highlight-font-weight);
   line-height: 2rem;
   text-align: center;
   width: 40%;
+}
+
+.underlinedInstruction {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 60%;
+    height: 4px;
+    bottom: -6px;
+    left: 20%;
+    background-color: var(--lightRed);
+    transform: scale(1);
+    transition: transform 3ms ease;
+  }
 }
 
 .instructionChallenge p {
@@ -235,7 +256,6 @@ main {
   position: relative;
   display: flex;
   justify-content: center;
-  margin: auto;
   padding-top: 1rem;
 }
 
@@ -243,7 +263,7 @@ main {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  left: -20%;
   bottom: 0;
   right: 0;
   margin: auto;
@@ -256,6 +276,17 @@ main {
   left: -25%;
 }
 
+.gamePlace {
+  @extend %styleSubContainer;
+  margin-top: 7rem;
+  margin-bottom: 2rem;
+}
+
+.copyContainer {
+  @extend %styleSubContainer;
+  width: 70%;
+}
+
 .subject {
   font-family: var(--general-font);
   font-size: var(--body-font-size);
@@ -263,9 +294,8 @@ main {
   line-height: var(--body-highlight-line-height);
   border: solid 3px var(--mainGreen);
   border-radius: 1.25rem;
-  width: 72%;
-  margin-top: 8rem;
-  margin-bottom: 2.125rem;
+  width: 100%;
+  margin-bottom: 2rem;
   text-align: center;
   padding: 0.5rem;
 }
@@ -301,7 +331,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 72%;
+  width: 100%;
 }
 
 %inputUserStyle {
@@ -332,11 +362,17 @@ main {
 }
 
 #validation {
-  border-radius: 1.25rem;
-  width: 24%;
-  margin-top: 2.125rem;
-  background-color: var(--mainGreen);
+  box-shadow: inset 0px 0px 0 4px var(--paleRed);
   font-family: var(--general-font);
+  margin-top: 2rem;
+
+  &::before {
+    background: var(--lightRed);
+  }
+
+  &::after {
+    background: var(--paleRed);
+  }
 }
 
 .scoreContenair {
