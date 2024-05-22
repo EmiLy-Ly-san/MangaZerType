@@ -22,8 +22,8 @@
     <main>
       <section class="gameContenair">
         <div class="manga">
-          <div class="instruction">
-            <p class=" instructionManga">1. Choisis ton manga !</p>
+          <div class="instruction instructionManga">
+            <p class="underlineInstruction mangaStape">1. Choisis ton manga !</p>
           </div>
           <div class= "booksContainer">
             <button class= "button booksButtons" id="onePiece"><span>One Piece</span></button>
@@ -37,9 +37,9 @@
 
         </div>
         <div class="changeMangaChoice hidden">Je veux choisir un autre manga !</div>
-        <div class="challenge">
+        <div class="challenge" id="stape2">
           <div class="instruction instructionChallenge">
-            <p>2. Choisis ton challenge !</p>
+            <p class="underlineInstruction challengeStape">2. Choisis ton challenge !</p>
           </div>
           <div class="challengeChoices">         
               <button class="button choicesButtons" id="charactersChoice"><span>PERSONNAGES</span></button>            
@@ -71,7 +71,7 @@
         </div>  
         <div class="gamePlace">
           <div class="instruction instructionGame">
-            <p>3. Recopie la proposition !</p>
+            <p class="underlineInstruction gameStape">3. Recopie la proposition !</p>
           </div>
           <div class="copyContainer">         
             <div class="subject" onselectstart="return false"
@@ -86,7 +86,7 @@
                   <img class="arrow" src="picture/arrow.png" alt="Fleche pointant vers la droite pour indiquer ou ecrire">
                   <input type="text" id="inputPlayer" name="inputPlayer" placeholder="Recopie ici !" autocomplete="off"></input>
               </div>          
-              <button type="submit" id="validation"><span>Valider</span></button>
+              <button type="submit" class="validation"><span>Valider</span></button>
             </form>
           </div> 
         </div>           

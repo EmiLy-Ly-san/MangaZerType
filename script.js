@@ -132,7 +132,7 @@ let sentencesChoice = document.getElementById("sentencesChoice");
 let formToValidateUserResponse = document.querySelector(
   ".inputPlayerContenair"
 );
-let validationButton = document.getElementById("validation");
+let validationButton = document.querySelector(".validation");
 
 //INSTRUCTIONS varibales
 let subjectHome = document.querySelector(".subject span");
@@ -193,6 +193,7 @@ function play() {
     if (responsePlayer.value == "") {
       inputFrame.style.border = "solid 1.5px #f23a56";
     } else {
+      validationButton.classList.add("validateAction");
       responsePlayerVerify();
       responsePlayer.value = "";
       if (indexCounter < subjectValue.length - 1) {
@@ -231,6 +232,8 @@ function mangaUserChoiceSelect() {
       changeMangaChoice.addEventListener("click", mangaChoiceChange);
       console.log(mangaUserChoice);
       buttonsDisable(booksButtons);
+      mangaStape.classList.remove("underlineAnimation");
+      challengeStape.classList.add("underlineAnimation");
     });
   });
 }
@@ -250,6 +253,8 @@ function charactersPlay() {
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
   play();
+  gameStape.classList.add("underlineAnimation");
+  challengeStape.classList.remove("underlineAnimation");
 }
 
 function sentencesPlay() {
@@ -262,6 +267,8 @@ function sentencesPlay() {
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
   play();
+  gameStape.classList.add("underlineAnimation");
+  challengeStape.classList.remove("underlineAnimation");
 }
 
 //let Game
@@ -269,5 +276,11 @@ mangaUserChoiceSelect();
 charactersChoice.addEventListener("click", charactersPlay);
 sentencesChoice.addEventListener("click", sentencesPlay);
 
-const instructionManga = document.querySelector(".instructionManga");
-instructionManga.classList.add("underlinedInstruction");
+responsePlayer.addEventListener("focus", () => {
+  validationButton.classList.remove("validateAction");
+});
+
+const mangaStape = document.querySelector(".mangaStape");
+const challengeStape = document.querySelector(".challengeStape");
+const gameStape = document.querySelector(".gameStape");
+mangaStape.classList.add("underlineAnimation");

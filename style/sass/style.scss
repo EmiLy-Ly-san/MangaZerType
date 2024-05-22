@@ -221,7 +221,7 @@ main {
   width: 40%;
 }
 
-.underlinedInstruction {
+.underlineInstruction {
   position: relative;
 
   &::before {
@@ -232,12 +232,16 @@ main {
     bottom: -6px;
     left: 20%;
     background-color: var(--lightRed);
+    transform: scale(0);
+    transition: transform 1s ease;
+  }
+
+  &.underlineAnimation::before {
     transform: scale(1);
-    transition: transform 3ms ease;
   }
 }
 
-.instructionChallenge p {
+.instructionChallenge {
   margin-top: 5rem;
 }
 
@@ -278,7 +282,7 @@ main {
 
 .gamePlace {
   @extend %styleSubContainer;
-  margin-top: 7rem;
+  margin-top: 10rem;
   margin-bottom: 2rem;
 }
 
@@ -361,10 +365,14 @@ main {
   line-height: var(--body-highlight-line-height);
 }
 
-#validation {
+.validation {
   box-shadow: inset 0px 0px 0 4px var(--paleRed);
   font-family: var(--general-font);
   margin-top: 2rem;
+
+  &.validateAction {
+    box-shadow: inset 0px 0px 0 4px var(--lightRed);
+  }
 
   &::before {
     background: var(--lightRed);
