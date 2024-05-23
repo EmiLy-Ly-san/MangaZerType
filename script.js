@@ -133,6 +133,10 @@ let formToValidateUserResponse = document.querySelector(
   ".inputPlayerContenair"
 );
 let validationButton = document.querySelector(".validation");
+const gamePlace = document.querySelector(".gamePlace");
+const mangaStape = document.querySelector(".mangaStape");
+const challengeStape = document.querySelector(".challengeStape");
+const gameStape = document.querySelector(".gameStape");
 
 //INSTRUCTIONS varibales
 let subjectHome = document.querySelector(".subject span");
@@ -165,11 +169,9 @@ function closeModalandReload() {
 
 function displayScoreInstructionButton() {
   validationButton.style.display = "none";
-  scoreInstructionButton.style.display = "block";
-  scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
+  scoreInstructionButton.style.display = "flex";
 }
 
-scoreInstructionButton.addEventListener("click", openModal);
 okButton.addEventListener("click", closeModalandReload);
 
 /***********GAME***********/
@@ -197,7 +199,6 @@ function play() {
       validationButton.addEventListener("transitionend", () => {
         validationButton.classList.remove("validationAnimation");
       });
-
       responsePlayerVerify();
       responsePlayer.value = "";
       if (indexCounter < subjectValue.length - 1) {
@@ -205,13 +206,9 @@ function play() {
         subjectFrame.classList.add("animationDoubleBorder");
         subject.innerHTML = subjectValue[indexCounter];
       } else {
-        indexCounter = 0;
-        subjectFrame.classList.remove("animationDoubleBorder");
-        subject.classList.add("hidden");
-        subjectHome.classList.remove("hidden");
-        subjectHome.textContent = "DONE !";
-        responsePlayer.placeholder = "Clique pour VOIR TON SCORE !";
-        displayScoreInstructionButton();
+        gamePlace.classList.add("hidden");
+        scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
+        openModal();
       }
     }
   });
@@ -279,12 +276,7 @@ function sentencesPlay() {
 mangaUserChoiceSelect();
 charactersChoice.addEventListener("click", charactersPlay);
 sentencesChoice.addEventListener("click", sentencesPlay);
-
+mangaStape.classList.add("underlineAnimation");
 /*responsePlayer.addEventListener("focus", () => {
   validationButton.classList.remove("validateAction");
 });*/
-
-const mangaStape = document.querySelector(".mangaStape");
-const challengeStape = document.querySelector(".challengeStape");
-const gameStape = document.querySelector(".gameStape");
-mangaStape.classList.add("underlineAnimation");

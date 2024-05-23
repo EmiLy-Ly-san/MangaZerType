@@ -11,7 +11,7 @@
   --black: #000000;
   --lightRed: #f87217;
   --paleRed: #fcd6bc;
-  --mainGreen: #97dbca;
+  --mainGreen: #98dccb;
   --lightGreen: #c2f7e8;
   --realGreen: #00c090;
   /*TEXT CONFIGURATION*/
@@ -385,25 +385,6 @@ main {
   }
 }
 
-.scoreContenair {
-  font-size: var(--body-highlight-font-size);
-  font-family: var(--general-font);
-  font-weight: var(--body-font-weight);
-  line-height: var(--body-line-height);
-  margin-top: 7rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40%;
-  height: 36%;
-  padding: 1.5rem;
-  background-color: var(--mainGreen);
-  border-radius: 1.25rem;
-  box-shadow: inset 0px 0px 0 3px var(--mainGreen),
-    inset 0px 0px 0 10.5px var(--white);
-}
-
 .modal {
   font-size: var(--body-highlight-font-size);
   font-weight: var(--body-font-weight);
@@ -416,22 +397,19 @@ main {
   align-items: center;
   gap: 4rem;
   width: 40%;
-  height: 36%;
+  height: 40%;
   padding: 1.5rem;
   background-color: var(--mainGreen);
   border-radius: 1.25rem;
   box-shadow: inset 0px 0px 0 3px var(--mainGreen),
     inset 0px 0px 0 10.5px var(--white);
   position: absolute;
-  top: 40%;
-  z-index: 2;
+  top: 30%;
+  z-index: 12;
 }
 
 .scoreInstructionButton {
   display: none;
-  background-color: var(--lightRed);
-  border: none;
-  margin-top: 2.125rem;
 }
 
 .modal p {
@@ -451,7 +429,7 @@ main {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
-  z-index: 1;
+  z-index: 11;
 }
 
 .hidden {
