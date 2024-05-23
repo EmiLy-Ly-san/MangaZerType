@@ -393,6 +393,10 @@ main {
   display: none;
 }
 
+.scorePlayer {
+  text-align: center;
+}
+
 .modal p {
   color: var(--lightRed);
   font-weight: var(--body-highlight-font-weight);
@@ -481,6 +485,13 @@ main {
   .copyContainer {
     width: 90%;
   }
+
+  .modal {
+    width: 80%;
+    height: 30%;
+    padding: 0.5rem;
+    top: 70%;
+  }
 }
 
 @media (max-width: 620px) {
@@ -519,11 +530,25 @@ main {
   .copyContainer {
     width: 90%;
   }
+
+  .modal {
+    width: 80%;
+    height: 30%;
+    padding: 0.5rem;
+    top: 50%;
+  }
 }
 
 @media (max-width: 375px) {
   h1 {
     font-size: 2.5rem;
+  }
+
+  .modal {
+    width: 80%;
+    height: 30%;
+    padding: 0.5rem;
+    top: 60%;
   }
 }
 
