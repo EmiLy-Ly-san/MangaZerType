@@ -123,29 +123,35 @@ const booksCollection = {
 };
 
 //BUTTONS variables
-let buttons = document.getElementsByTagName("button");
-let booksButtons = document.querySelectorAll(".booksButtons");
-let changeMangaChoice = document.querySelector(".changeMangaChoice");
-let choicesButtons = document.querySelectorAll(".choicesButtons");
-let charactersChoice = document.getElementById("charactersChoice");
-let sentencesChoice = document.getElementById("sentencesChoice");
-let formToValidateUserResponse = document.querySelector(
+const buttons = document.getElementsByTagName("button");
+const booksButtons = document.querySelectorAll(".booksButtons");
+const changeMangaChoice = document.querySelector(".changeMangaChoice");
+const choicesButtons = document.querySelectorAll(".choicesButtons");
+const charactersChoice = document.getElementById("charactersChoice");
+const sentencesChoice = document.getElementById("sentencesChoice");
+const formToValidateUserResponse = document.querySelector(
   ".inputPlayerContenair"
 );
-let validationButton = document.querySelector(".validation");
+const validationButton = document.querySelector(".validation");
+
+//CONTAINERS AND GAME STAPES VARIABLES
 const gamePlace = document.querySelector(".gamePlace");
 const mangaStape = document.querySelector(".mangaStape");
 const challengeStape = document.querySelector(".challengeStape");
 const gameStape = document.querySelector(".gameStape");
+const stape2 = document.getElementById("stape2");
+const stape2Top = stape2.offsetTop;
+const stape3 = document.getElementById("stape3");
+const stape3Top = stape3.offsetTop;
 
 //INSTRUCTIONS varibales
-let subjectHome = document.querySelector(".subject span");
-let subject = document.querySelector(".subject em");
-let subjectFrame = document.querySelector(".subject");
+const subjectHome = document.querySelector(".subject span");
+const subject = document.querySelector(".subject em");
+const subjectFrame = document.querySelector(".subject");
 
 //INPUT RESPONSE PLAYER variables
-let responsePlayer = document.getElementById("inputPlayer");
-let inputFrame = document.querySelector(".response input");
+const responsePlayer = document.getElementById("inputPlayer");
+const inputFrame = document.querySelector(".response input");
 
 //MODAL VARIABLES, FUNCTIONS and EventsListener:
 const modal = document.querySelector(".modal");
@@ -221,11 +227,6 @@ function responsePlayerVerify() {
   }
 }
 
-const stape2 = document.getElementById("stape2");
-const stape2Top = stape2.offsetTop;
-const stape3 = document.getElementById("stape3");
-const stape3Top = stape3.offsetTop;
-
 //specifics/choices game functions
 function mangaUserChoiceSelect() {
   booksButtons.forEach(function (bookButton) {
@@ -280,11 +281,12 @@ function sentencesPlay() {
   play();
 }
 
-//let Game
-mangaUserChoiceSelect();
-charactersChoice.addEventListener("click", charactersPlay);
-sentencesChoice.addEventListener("click", sentencesPlay);
-mangaStape.classList.add("underlineAnimation");
-/*responsePlayer.addEventListener("focus", () => {
-  validationButton.classList.remove("validateAction");
-});*/
+//lauch Game
+function launchGame() {
+  mangaUserChoiceSelect();
+  charactersChoice.addEventListener("click", charactersPlay);
+  sentencesChoice.addEventListener("click", sentencesPlay);
+  mangaStape.classList.add("underlineAnimation");
+}
+
+launchGame();
