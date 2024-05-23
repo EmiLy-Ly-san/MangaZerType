@@ -221,6 +221,11 @@ function responsePlayerVerify() {
   }
 }
 
+const stape2 = document.getElementById("stape2");
+const stape2Top = stape2.offsetTop;
+const stape3 = document.getElementById("stape3");
+const stape3Top = stape3.offsetTop;
+
 //specifics/choices game functions
 function mangaUserChoiceSelect() {
   booksButtons.forEach(function (bookButton) {
@@ -233,6 +238,7 @@ function mangaUserChoiceSelect() {
       changeMangaChoice.addEventListener("click", mangaChoiceChange);
       console.log(mangaUserChoice);
       buttonsDisable(booksButtons);
+      window.scrollTo(0, stape2Top, { behavior: "smooth" });
       mangaStape.classList.remove("underlineAnimation");
       challengeStape.classList.add("underlineAnimation");
     });
@@ -253,9 +259,10 @@ function charactersPlay() {
   subject.innerHTML = subjectValue[indexCounter];
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
-  play();
+  window.scrollTo(0, stape3Top, { behavior: "smooth" });
   gameStape.classList.add("underlineAnimation");
   challengeStape.classList.remove("underlineAnimation");
+  play();
 }
 
 function sentencesPlay() {
@@ -267,9 +274,10 @@ function sentencesPlay() {
   subject.innerHTML = subjectValue[indexCounter];
   subjectHome.classList.add("hidden");
   subject.classList.remove("hidden");
-  play();
+  window.scrollTo(0, stape3Top, { behavior: "smooth" });
   gameStape.classList.add("underlineAnimation");
   challengeStape.classList.remove("underlineAnimation");
+  play();
 }
 
 //let Game
