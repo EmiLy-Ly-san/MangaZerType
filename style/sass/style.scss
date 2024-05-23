@@ -28,7 +28,7 @@
 }
 
 body {
-  margin: 0;
+  margin: 0rem;
   padding: 0;
   box-sizing: border-box;
   width: 100%;
@@ -131,6 +131,7 @@ header {
   justify-content: center;
   align-items: center;
   width: 100%;
+  margin-top: 1rem;
 }
 
 .titleContenair {
@@ -150,33 +151,9 @@ h1 {
   margin: 0;
 }
 
-.manga {
-  @extend %styleSubContainer;
-}
-
-.booksContainer {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  gap: 2rem;
-  width: 100%;
-  margin-top: 1rem;
-}
-
-.changeMangaChoice {
-  border: none;
-  text-decoration: underline;
-  cursor: pointer;
-
-  &:hover {
-    font-style: italic;
-    border: none;
-    box-shadow: none;
-  }
-}
-
-.challenge {
-  @extend %styleSubContainer;
+.instructionGeneral {
+  margin: 1rem;
+  text-align: center;
 }
 
 main {
@@ -215,6 +192,35 @@ main {
   &.underlineAnimation::before {
     transform: scale(1);
   }
+}
+
+.manga {
+  @extend %styleSubContainer;
+}
+
+.booksContainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.changeMangaChoice {
+  border: none;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    font-style: italic;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.challenge {
+  @extend %styleSubContainer;
 }
 
 .instructionChallenge {
@@ -411,81 +417,127 @@ main {
   display: none;
 }
 
+@media (max-width: 1366px) {
+  .titleContenair {
+    width: 70%;
+  }
+  .instructionChallenge {
+    margin-top: 1.5rem;
+  }
+
+  .gameContenair {
+    width: 70%;
+  }
+
+  .challengeChoices {
+    justify-content: space-evenly;
+    margin-top: 1rem;
+  }
+
+  .picturesContener {
+    margin-top: 9rem;
+    width: 25%;
+  }
+
+  .gamePlace {
+    margin-top: 9rem;
+  }
+
+  .copyContainer {
+    width: 90%;
+  }
+}
+
 @media (max-width: 1024px) {
   /* VARIABLES */
-  :root {
-    --body-font-size: 0.7rem;
-    --body-highlight-font-size: 1rem;
-    --header-font-size: 1.688rem;
-    --header-line-height: 1.5rem;
-  }
 
   .titleContenair {
     width: 85%;
     margin-top: 0.2rem;
   }
 
-  h1 {
-    padding: 1rem;
-  }
-
-  .booksContener {
-    width: 85%;
-    gap: 0.5rem;
-  }
-
   .gameContenair {
     width: 85%;
   }
 
-  .instruction p {
-    font-size: 1rem;
-    width: 85%;
-    line-height: 1.2rem;
+  .instructionChallenge {
+    margin-top: 1.5rem;
   }
 
-  .choices {
-    margin-top: 16px;
-  }
-
-  .subject {
-    width: 85%;
+  .challengeChoices {
+    justify-content: space-evenly;
+    margin-top: 1rem;
   }
 
   .picturesContener {
-    margin-top: 0rem;
+    margin-top: 7.5rem;
+    width: 25%;
   }
 
-  .inputPlayerContenair {
-    width: 85%;
+  .gamePlace {
+    margin-top: 8rem;
   }
 
-  .arrow {
-    padding: 0.2rem;
-  }
-
-  .scoreContenair {
-    margin-top: 1rem;
-    font-size: 16px;
+  .copyContainer {
+    width: 90%;
   }
 }
 
 @media (max-width: 620px) {
-  .challengeChoices {
-    margin-bottom: 3rem;
-    flex-direction: column;
-    gap: 0.5rem;
+  .instructionChallenge {
+    margin-top: 1.5rem;
   }
 
   .picturesContener {
-    margin-top: 0.5rem;
+    margin-top: 8rem;
+    width: 50%;
+  }
+
+  .gamePlace {
+    margin-top: 6rem;
+  }
+
+  .copyContainer {
+    width: 100%;
   }
 
   .subject {
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
   }
 
-  #validation {
-    padding-right: 2.8rem;
+  .response {
+    margin-top: -2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .picturesContener {
+    margin-top: 8rem;
+    width: 40%;
+  }
+
+  .copyContainer {
+    width: 90%;
+  }
+}
+
+@media (max-width: 375px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 344px) {
+  .titleContenair {
+    width: 80%;
+    margin-top: 0.2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  .gameContenair {
+    width: 80%;
   }
 }
