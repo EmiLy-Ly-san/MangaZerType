@@ -180,6 +180,17 @@ function displayScoreInstructionButton() {
 
 okButton.addEventListener("click", closeModalandReload);
 
+//CONFETTI UNICORN
+const jsConfetti = new JSConfetti();
+const confettiButton = document.querySelector(".confettiButton");
+confettiButton.addEventListener("click", () => {
+  confettiButton.classList.add("validationAnimation");
+  confettiButton.addEventListener("transitionend", () => {
+    confettiButton.classList.remove("validationAnimation");
+  });
+  jsConfetti.addConfetti({ emojis: ["🦄"], emojiSize: 25, confettiNumber: 50 });
+});
+
 /***********GAME***********/
 let mangaUserChoice;
 let subjectValue;
@@ -213,8 +224,13 @@ function play() {
         subject.innerHTML = subjectValue[indexCounter];
       } else {
         gamePlace.classList.add("hidden");
-        scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
         openModal();
+        scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
+        jsConfetti.addConfetti({
+          emojis: ["🦄"],
+          emojiSize: 25,
+          confettiNumber: 100,
+        });
       }
     }
   });

@@ -33,11 +33,15 @@ body {
   align-items: center;
   font-family: var(--general-font);
   position: relative;
+  letter-spacing: 1px;
+  text-align: center;
 }
 
 button {
-  width: 150px;
+  width: 155px;
   height: 50px;
+  letter-spacing: 1px;
+  white-space: nowrap;
   border-radius: 0.625rem;
   box-shadow: inset 0px 0px 0 4px var(--lightGreen);
   display: flex;
@@ -66,6 +70,10 @@ button::after {
   content: "";
   inset: 4px;
   background: var(--white);
+}
+button button,
+button input {
+  outline: none;
 }
 button:disabled {
   border: solid 2px var(--lightGreen);
@@ -142,6 +150,7 @@ h1 {
 .instructionGeneral {
   margin: 1rem;
   text-align: center;
+  width: 40%;
 }
 
 main {
@@ -316,19 +325,27 @@ main {
   line-height: var(--body-highlight-line-height);
 }
 
-.validation {
+.validation,
+.confettiButton,
+.okButton {
   box-shadow: inset 0px 0px 0 4px var(--paleRed);
   font-family: var(--general-font);
   margin-top: 2rem;
   transition: box-shadow 300ms ease;
 }
-.validation.validationAnimation {
+.validation.validationAnimation,
+.confettiButton.validationAnimation,
+.okButton.validationAnimation {
   box-shadow: inset 0px 0px 0 4px var(--lightRed);
 }
-.validation::before {
+.validation::before,
+.confettiButton::before,
+.okButton::before {
   background: var(--lightRed);
 }
-.validation::after {
+.validation::after,
+.confettiButton::after,
+.okButton::after {
   background: var(--paleRed);
 }
 
