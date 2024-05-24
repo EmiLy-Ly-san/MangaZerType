@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="style/css/style.css" />
     <script src="script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <!--https://github.com/loonywizard/js-confetti-->
   </head>
   <body>
     <header>
@@ -89,15 +90,20 @@
               <button type="submit" class="validation"><span>Valider</span></button>
             </form>
           </div> 
-        </div>           
-        <div class="modal hidden">
-          <p class="scorePlayer"></p>
-          <button class="confettiButton"><span>Plus de licornes !</span></button> 
-          <button class="okButton"><span>OK !</span></button>           
-        </div>           
-        <div class="overlay hidden"></div>
-        
+        </div>             
       </section>
+      <div class="modal hidden">
+        <div class="correctionContainer">
+          <!--TO DO => use a table instead of ol and ul and ul-->
+          <ol class='responsesPlayerList'></ol>
+          <ul class="correctionList"></ul>
+          <ul class="resultIcon"></ul>
+        </div>
+        <p class="scorePlayer"></p>
+        <button class="confettiButton"><span>Plus de licornes !</span></button> 
+        <button class="okButton"><span>OK !</span></button>           
+      </div>           
+      <div class="overlay hidden"></div>  
     </main>
   </body>
 </html>

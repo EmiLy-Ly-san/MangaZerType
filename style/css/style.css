@@ -34,7 +34,6 @@ body {
   font-family: var(--general-font);
   position: relative;
   letter-spacing: 1px;
-  text-align: center;
 }
 
 button {
@@ -155,8 +154,10 @@ h1 {
 
 main {
   width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
 .gameContenair {
@@ -218,6 +219,7 @@ main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  gap: 1rem;
   font-size: var(--body-font-size);
 }
 
@@ -350,29 +352,68 @@ main {
 }
 
 .modal {
+  width: 1400px;
+  height: 750px;
   font-size: var(--body-highlight-font-size);
   font-weight: var(--body-font-weight);
   line-height: var(--body-line-height);
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 4rem;
-  width: 40%;
-  height: 40%;
+  gap: 2rem;
   padding: 1.5rem;
   background-color: var(--mainGreen);
   border-radius: 1.25rem;
   box-shadow: inset 0px 0px 0 3px var(--mainGreen), inset 0px 0px 0 10.5px var(--white);
   position: absolute;
-  top: 30%;
+  top: -250px;
+  bottom: 0;
+  left: 250px;
+  right: 0;
   z-index: 12;
 }
 
-.scoreInstructionButton {
-  display: none;
+.correctionContainer {
+  margin-top: 2rem;
+}
+
+li {
+  padding: 0.5rem 1.5rem 1rem;
+  border-radius: 1.5rem;
+}
+
+li + li {
+  margin-top: 1rem;
+}
+
+ol li {
+  background: var(--paleRed);
+}
+
+ul {
+  list-style: none;
+  font-style: italic;
+}
+
+.resultIcon {
+  margin-top: 1rem;
+}
+
+ul img {
+  display: block;
+  padding: 0.4rem;
+}
+
+::marker {
+  font-weight: 600;
+  color: var(--lightRed);
+}
+
+.correctionContainer {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 1rem;
+  border-radius: 1.25rem;
 }
 
 .scorePlayer {

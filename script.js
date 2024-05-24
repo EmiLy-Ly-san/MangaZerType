@@ -180,6 +180,40 @@ function displayScoreInstructionButton() {
 
 okButton.addEventListener("click", closeModalandReload);
 
+//RESPONSE PLAYER LIST AND CORRECTION LIST
+
+const responsesPlayerList = document.querySelector(".responsesPlayerList");
+const correctionList = document.querySelector(".correctionList");
+const resultIcon = document.querySelector(".resultIcon");
+
+function createResponsePlayerList() {
+  let responsePlayerItem = document.createElement("li");
+  responsePlayerItem.textContent = responsePlayer.value;
+  console.log(responsePlayerItem);
+  responsesPlayerList.append(responsePlayerItem);
+}
+
+function giveCorrectionList() {
+  let correctionItem = document.createElement("li");
+  correctionItem.textContent = subjectValue[indexCounter];
+  correctionList.append(correctionItem);
+  if (responsePlayer.value === subjectValue[indexCounter]) {
+    const correctAnswerIcon = new Image();
+    correctAnswerIcon.src = "picture/icons8-verifie-48.png";
+    let resultIconItem = document.createElement("li");
+    resultIconItem = correctAnswerIcon;
+    resultIcon.append(resultIconItem);
+    console.log(resultIconItem);
+  } else {
+    const incorrectAnswerIcon = new Image();
+    incorrectAnswerIcon.src = "picture/icons8-annuler-48.png";
+    let resultIconItem = document.createElement("li");
+    resultIconItem = incorrectAnswerIcon;
+    resultIcon.append(resultIconItem);
+    console.log(resultIconItem);
+  }
+}
+
 //CONFETTI UNICORN
 const jsConfetti = new JSConfetti();
 const confettiButton = document.querySelector(".confettiButton");
@@ -188,7 +222,7 @@ confettiButton.addEventListener("click", () => {
   confettiButton.addEventListener("transitionend", () => {
     confettiButton.classList.remove("validationAnimation");
   });
-  jsConfetti.addConfetti({ emojis: ["🦄"], emojiSize: 25, confettiNumber: 50 });
+  jsConfetti.addConfetti({ emojis: ["🦄"], emojiSize: 50, confettiNumber: 50 });
 });
 
 /***********GAME***********/
@@ -216,6 +250,8 @@ function play() {
       validationButton.addEventListener("transitionend", () => {
         validationButton.classList.remove("validationAnimation");
       });
+      createResponsePlayerList();
+      giveCorrectionList();
       responsePlayerVerify();
       responsePlayer.value = "";
       if (indexCounter < subjectValue.length - 1) {
@@ -223,12 +259,11 @@ function play() {
         subjectFrame.classList.add("animationDoubleBorder");
         subject.innerHTML = subjectValue[indexCounter];
       } else {
-        gamePlace.classList.add("hidden");
         openModal();
         scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
         jsConfetti.addConfetti({
           emojis: ["🦄"],
-          emojiSize: 25,
+          emojiSize: 50,
           confettiNumber: 100,
         });
       }
