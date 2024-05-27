@@ -11,8 +11,8 @@
     <!--https://github.com/loonywizard/js-confetti-->
   </head>
   <body>
-    <header>
-      <div class="titleContenair">
+    <header id="topPage">
+      <div class="titleContenair" >
         <h1>MangAzerType</h1>
         <p>Jeu éducatif pour les 6-11 ans</p>
       </div>
@@ -93,15 +93,14 @@
         </div>             
       </section>
       <div class="modal hidden">
+        <div class="modalCross">
+          <img src="picture/icons8-fermer-48.png" alt="Croix pour fermer l,apercu des resultats">
+        </div>
         <div class="correctionContainer">
-          <!--TO DO => use a table instead of ol and ul and ul-->
-          <ol class='responsesPlayerList'></ol>
-          <ul class="correctionList"></ul>
-          <ul class="resultIcon"></ul>
+          <ol class='correctionList'></ol>
         </div>
         <p class="scorePlayer"></p>
-        <button class="confettiButton"><span>Plus de licornes !</span></button> 
-        <button class="okButton"><span>OK !</span></button>           
+        <button class="confettiButton"><span>Plus de licornes !</span></button>          
       </div>           
       <div class="overlay hidden"></div>  
     </main>

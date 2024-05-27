@@ -135,6 +135,8 @@ const formToValidateUserResponse = document.querySelector(
 const validationButton = document.querySelector(".validation");
 
 //CONTAINERS AND GAME STAPES VARIABLES
+const topPage = document.getElementById("topPage");
+const topPageTop = topPage.offsetTop;
 const gamePlace = document.querySelector(".gamePlace");
 const mangaStape = document.querySelector(".mangaStape");
 const challengeStape = document.querySelector(".challengeStape");
@@ -153,18 +155,19 @@ const subjectFrame = document.querySelector(".subject");
 const responsePlayer = document.getElementById("inputPlayer");
 const inputFrame = document.querySelector(".response input");
 
-//MODAL VARIABLES, FUNCTIONS and EventsListener:
+//MODAL SCORE VARIABLES, FUNCTIONS and EventsListener:
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const scoreInstructionButton = document.querySelector(
   ".scoreInstructionButton"
 );
 const scorePlayer = document.querySelector(".scorePlayer");
-const okButton = document.querySelector(".okButton");
+const modalCross = document.querySelector(".modalCross");
 
 function openModal() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+  window.scrollTo(0, topPageTop, { behavior: "smooth" });
 }
 
 function closeModalandReload() {
@@ -178,40 +181,41 @@ function displayScoreInstructionButton() {
   scoreInstructionButton.style.display = "flex";
 }
 
-okButton.addEventListener("click", closeModalandReload);
+modalCross.addEventListener("click", closeModalandReload);
 
 //RESPONSE PLAYER LIST AND CORRECTION LIST
 
-const responsesPlayerList = document.querySelector(".responsesPlayerList");
 const correctionList = document.querySelector(".correctionList");
-const resultIcon = document.querySelector(".resultIcon");
+let answerUserItem;
+let correctAnswerItem;
+let answerUserTrueOrFalse;
 
-function createResponsePlayerList() {
-  let responsePlayerItem = document.createElement("li");
-  responsePlayerItem.textContent = responsePlayer.value;
-  console.log(responsePlayerItem);
-  responsesPlayerList.append(responsePlayerItem);
-}
-
-function giveCorrectionList() {
-  let correctionItem = document.createElement("li");
-  correctionItem.textContent = subjectValue[indexCounter];
-  correctionList.append(correctionItem);
-  if (responsePlayer.value === subjectValue[indexCounter]) {
-    const correctAnswerIcon = new Image();
-    correctAnswerIcon.src = "picture/icons8-verifie-48.png";
-    let resultIconItem = document.createElement("li");
-    resultIconItem = correctAnswerIcon;
-    resultIcon.append(resultIconItem);
-    console.log(resultIconItem);
-  } else {
-    const incorrectAnswerIcon = new Image();
-    incorrectAnswerIcon.src = "picture/icons8-annuler-48.png";
-    let resultIconItem = document.createElement("li");
-    resultIconItem = incorrectAnswerIcon;
-    resultIcon.append(resultIconItem);
-    console.log(resultIconItem);
-  }
+function correctionComplete(answerUser, correctAnswer, trueOrFalse) {
+  this.answerUser = answerUser;
+  this.correctAnswer = correctAnswer;
+  this.trueOrFalse = trueOrFalse;
+  this.giveAnswerUser = function () {
+    answerUserItem = document.createElement("li");
+    answerUserItem.textContent = this.answerUser;
+    correctionList.append(answerUserItem);
+    console.log(this.answerUser);
+    answerUserItem.classList.add("answerUserItemStyle");
+  };
+  this.giveCorrectAnswer = function () {
+    correctAnswerItem = document.createElement("li");
+    correctAnswerItem.textContent = "Correction: " + this.correctAnswer;
+    correctionList.append(correctAnswerItem);
+    console.log(this.correctAnswer);
+    correctAnswerItem.classList.add("correctAnswerItemStyle");
+  };
+  this.giveTrueOrFalse = function () {
+    if (answerUserTrueOrFalse === false) {
+      this.trueOrFalse = false;
+      answerUserItem.classList.add("falseAnswer");
+    } else {
+      this.trueOrFalse = true;
+    }
+  };
 }
 
 //CONFETTI UNICORN
@@ -222,7 +226,11 @@ confettiButton.addEventListener("click", () => {
   confettiButton.addEventListener("transitionend", () => {
     confettiButton.classList.remove("validationAnimation");
   });
-  jsConfetti.addConfetti({ emojis: ["🦄"], emojiSize: 50, confettiNumber: 50 });
+  jsConfetti.addConfetti({
+    emojis: ["🦄"],
+    emojiSize: 100,
+    confettiNumber: 50,
+  });
 });
 
 /***********GAME***********/
@@ -230,6 +238,7 @@ let mangaUserChoice;
 let subjectValue;
 let indexCounter = 0;
 let score = 0;
+let gameReview;
 
 //generals game functions
 function buttonsDisable(buttons) {
@@ -250,9 +259,15 @@ function play() {
       validationButton.addEventListener("transitionend", () => {
         validationButton.classList.remove("validationAnimation");
       });
-      createResponsePlayerList();
-      giveCorrectionList();
       responsePlayerVerify();
+      gameReview = new correctionComplete(
+        responsePlayer.value,
+        subjectValue[indexCounter],
+        answerUserTrueOrFalse
+      );
+      gameReview.giveAnswerUser();
+      gameReview.giveCorrectAnswer();
+      gameReview.giveTrueOrFalse();
       responsePlayer.value = "";
       if (indexCounter < subjectValue.length - 1) {
         indexCounter += 1;
@@ -263,7 +278,7 @@ function play() {
         scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
         jsConfetti.addConfetti({
           emojis: ["🦄"],
-          emojiSize: 50,
+          emojiSize: 100,
           confettiNumber: 100,
         });
       }
@@ -274,7 +289,11 @@ function play() {
 function responsePlayerVerify() {
   if (responsePlayer.value === subjectValue[indexCounter]) {
     score++;
+    answerUserTrueOrFalse = true;
     console.log(score);
+    console.log(answerUserTrueOrFalse);
+  } else {
+    answerUserTrueOrFalse = false;
   }
 }
 

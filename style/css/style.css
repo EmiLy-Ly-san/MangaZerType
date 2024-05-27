@@ -34,6 +34,7 @@ body {
   font-family: var(--general-font);
   position: relative;
   letter-spacing: 1px;
+  position: relative;
 }
 
 button {
@@ -157,7 +158,7 @@ main {
   height: 100%;
   display: flex;
   justify-content: center;
-  position: relative;
+  align-items: center;
 }
 
 .gameContenair {
@@ -328,92 +329,78 @@ main {
 }
 
 .validation,
-.confettiButton,
-.okButton {
+.confettiButton {
   box-shadow: inset 0px 0px 0 4px var(--paleRed);
   font-family: var(--general-font);
-  margin-top: 2rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   transition: box-shadow 300ms ease;
 }
 .validation.validationAnimation,
-.confettiButton.validationAnimation,
-.okButton.validationAnimation {
+.confettiButton.validationAnimation {
   box-shadow: inset 0px 0px 0 4px var(--lightRed);
 }
 .validation::before,
-.confettiButton::before,
-.okButton::before {
+.confettiButton::before {
   background: var(--lightRed);
 }
 .validation::after,
-.confettiButton::after,
-.okButton::after {
+.confettiButton::after {
   background: var(--paleRed);
 }
 
 .modal {
-  width: 1400px;
-  height: 750px;
+  width: 60%;
+  max-height: 80%;
   font-size: var(--body-highlight-font-size);
   font-weight: var(--body-font-weight);
   line-height: var(--body-line-height);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   padding: 1.5rem;
   background-color: var(--mainGreen);
   border-radius: 1.25rem;
   box-shadow: inset 0px 0px 0 3px var(--mainGreen), inset 0px 0px 0 10.5px var(--white);
   position: absolute;
-  top: -250px;
-  bottom: 0;
-  left: 250px;
-  right: 0;
+  top: 5%;
   z-index: 12;
 }
 
+.modalCross {
+  align-self: flex-end;
+  cursor: pointer;
+  margin: 0.3rem;
+}
+
 .correctionContainer {
-  margin-top: 2rem;
-}
-
-li {
-  padding: 0.5rem 1.5rem 1rem;
-  border-radius: 1.5rem;
-}
-
-li + li {
   margin-top: 1rem;
+  border-radius: 1.25rem;
+  border: solid 4px white;
+  min-width: 60%;
+  max-width: 80%;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-ol li {
-  background: var(--paleRed);
+.answerUserItemStyle {
+  padding: 0.5rem;
+  border-radius: 1.5rem;
+  margin-top: 1rem;
+  background: white;
+  list-style: none;
 }
 
-ul {
+.correctAnswerItemStyle {
   list-style: none;
   font-style: italic;
 }
 
-.resultIcon {
-  margin-top: 1rem;
-}
-
-ul img {
-  display: block;
-  padding: 0.4rem;
-}
-
-::marker {
-  font-weight: 600;
-  color: var(--lightRed);
-}
-
-.correctionContainer {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  border-radius: 1.25rem;
+.falseAnswer {
+  text-decoration: red line-through 3px;
 }
 
 .scorePlayer {
@@ -421,7 +408,7 @@ ul img {
 }
 
 .modal p {
-  color: var(--lightRed);
+  color: red;
   font-weight: var(--body-highlight-font-weight);
   line-height: var(--body-highlight-line-height);
   margin: 0.4rem 0 0.2rem;
@@ -495,12 +482,11 @@ ul img {
   .copyContainer {
     width: 90%;
   }
-  .modal {
+  /*.modal {
     width: 80%;
     height: 30%;
     padding: 0.5rem;
-    top: 70%;
-  }
+  }*/
 }
 @media (max-width: 620px) {
   .instructionChallenge {
@@ -522,6 +508,14 @@ ul img {
   .response {
     margin-top: -2rem;
   }
+  .modal {
+    width: 80%;
+    max-height: 80%;
+    padding: 0.5rem;
+  }
+  .correctionContainer {
+    border: none;
+  }
 }
 @media (max-width: 540px) {
   .picturesContener {
@@ -531,22 +525,15 @@ ul img {
   .copyContainer {
     width: 90%;
   }
-  .modal {
+  /*.modal {
     width: 80%;
     height: 30%;
     padding: 0.5rem;
-    top: 50%;
-  }
+  }*/
 }
 @media (max-width: 375px) {
   h1 {
     font-size: 2.5rem;
-  }
-  .modal {
-    width: 80%;
-    height: 30%;
-    padding: 0.5rem;
-    top: 60%;
   }
 }
 @media (max-width: 344px) {
