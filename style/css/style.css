@@ -482,11 +482,6 @@ main {
   .copyContainer {
     width: 90%;
   }
-  /*.modal {
-    width: 80%;
-    height: 30%;
-    padding: 0.5rem;
-  }*/
 }
 @media (max-width: 620px) {
   .instructionChallenge {
@@ -525,11 +520,6 @@ main {
   .copyContainer {
     width: 90%;
   }
-  /*.modal {
-    width: 80%;
-    height: 30%;
-    padding: 0.5rem;
-  }*/
 }
 @media (max-width: 375px) {
   h1 {
