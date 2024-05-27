@@ -1,4 +1,4 @@
-/***********VARIABLES - CLASS - OBJECTS***********/
+/***********VARIABLES - CLASS - OBJECTS - GENERAL FUNCTIONS***********/
 //PICTURES variables
 const homePicture = document.getElementById("homePicture");
 const onePiecePicture = document.getElementById("onePiecePicture");
@@ -233,70 +233,6 @@ confettiButton.addEventListener("click", () => {
   });
 });
 
-/***********GAME***********/
-let mangaUserChoice;
-let subjectValue;
-let indexCounter = 0;
-let score = 0;
-let gameReview;
-
-//generals game functions
-function buttonsDisable(buttons) {
-  buttons.forEach(function (button) {
-    button.disabled = true;
-  });
-}
-
-function play() {
-  indexCounter = 0;
-  score = 0;
-  formToValidateUserResponse.addEventListener("submit", (e) => {
-    e.preventDefault();
-    if (responsePlayer.value == "") {
-      inputFrame.style.border = "solid 1.5px #f23a56";
-    } else {
-      validationButton.classList.add("validationAnimation");
-      validationButton.addEventListener("transitionend", () => {
-        validationButton.classList.remove("validationAnimation");
-      });
-      responsePlayerVerify();
-      gameReview = new correctionComplete(
-        responsePlayer.value,
-        subjectValue[indexCounter],
-        answerUserTrueOrFalse
-      );
-      gameReview.giveAnswerUser();
-      gameReview.giveCorrectAnswer();
-      gameReview.giveTrueOrFalse();
-      responsePlayer.value = "";
-      if (indexCounter < subjectValue.length - 1) {
-        indexCounter += 1;
-        subjectFrame.classList.add("animationDoubleBorder");
-        subject.innerHTML = subjectValue[indexCounter];
-      } else {
-        openModal();
-        scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
-        jsConfetti.addConfetti({
-          emojis: ["🦄"],
-          emojiSize: 100,
-          confettiNumber: 100,
-        });
-      }
-    }
-  });
-}
-
-function responsePlayerVerify() {
-  if (responsePlayer.value === subjectValue[indexCounter]) {
-    score++;
-    answerUserTrueOrFalse = true;
-    console.log(score);
-    console.log(answerUserTrueOrFalse);
-  } else {
-    answerUserTrueOrFalse = false;
-  }
-}
-
 //specifics/choices game functions
 function mangaUserChoiceSelect() {
   booksButtons.forEach(function (bookButton) {
@@ -349,6 +285,78 @@ function sentencesPlay() {
   gameStape.classList.add("underlineAnimation");
   challengeStape.classList.remove("underlineAnimation");
   play();
+}
+
+/***********GAME***********/
+let mangaUserChoice;
+let subjectValue;
+let indexCounter = 0;
+let score = 0;
+let gameReview;
+
+//generals game functions
+function buttonsDisable(buttons) {
+  buttons.forEach(function (button) {
+    button.disabled = true;
+  });
+}
+
+function responsePlayerVerify() {
+  if (responsePlayer.value === subjectValue[indexCounter]) {
+    score++;
+    answerUserTrueOrFalse = true;
+    console.log(score);
+    console.log(answerUserTrueOrFalse);
+  } else {
+    answerUserTrueOrFalse = false;
+  }
+}
+
+function createCorrection() {
+  gameReview = new correctionComplete(
+    responsePlayer.value,
+    subjectValue[indexCounter],
+    answerUserTrueOrFalse
+  );
+  gameReview.giveAnswerUser();
+  gameReview.giveCorrectAnswer();
+  gameReview.giveTrueOrFalse();
+  responsePlayer.value = "";
+}
+
+function continueTheGame() {
+  if (indexCounter < subjectValue.length - 1) {
+    indexCounter += 1;
+    subjectFrame.classList.add("animationDoubleBorder");
+    subject.innerHTML = subjectValue[indexCounter];
+  } else {
+    openModal();
+    scorePlayer.innerHTML = `Ton score est de ${score} / ${subjectValue.length} !`;
+    jsConfetti.addConfetti({
+      emojis: ["🦄"],
+      emojiSize: 100,
+      confettiNumber: 100,
+    });
+  }
+}
+
+function play() {
+  indexCounter = 0;
+  score = 0;
+  formToValidateUserResponse.addEventListener("submit", (e) => {
+    e.preventDefault();
+    if (responsePlayer.value == "") {
+      inputFrame.style.border = "solid 1.5px #f23a56";
+    } else {
+      validationButton.classList.add("validationAnimation");
+      validationButton.addEventListener("transitionend", () => {
+        validationButton.classList.remove("validationAnimation");
+      });
+      responsePlayerVerify();
+      createCorrection();
+      continueTheGame();
+    }
+  });
 }
 
 //lauch Game

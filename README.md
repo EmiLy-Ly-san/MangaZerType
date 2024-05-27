@@ -1,13 +1,13 @@
 # MangaZerType
 
-TECHNO => HTML, CSS and JS full Vanilla | Functionnal programming | JS functions and classes constructor method | Modal window | Animation | Responsive | JS Unicorns confetti  🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄 
+TECHNO => HTML, SCSS and JS full Vanilla | Functionnal programming | JS functions and classes constructor method | Modal window | Animation | Responsive | JS Unicorns confetti 🦄🦄🦄🦄🦄🦄🦄🦄🦄🦄
 (https://github.com/loonywizard/js-confetti)
 
 **_english will below_**
 
-**Jeu éducatif pour les 6-11 ans || Dactylographie ** 
+**Jeu éducatif pour les 6-11 ans || Dactylographie **
 
-Ce jeu permet aux enfants de s'entraîner à taper au clavier avec leur mangas préférés en français ! 
+Ce jeu permet aux enfants de s'entraîner à taper au clavier avec leur mangas préférés en français !
 Du simple mot à la phrases la plus complexe, ils doivent recopier au clavier une proposition, sans faute d'orthographe, sans omettre les majuscules et les caractères spéciaux.
 Ils choisissent à quel manga les propositions appartiennent, et le type de challenge.
 La correction qui leur ai donné leur permet de cibler leur faute pour s'améliorer au prochain challenge !
@@ -25,9 +25,9 @@ Emilie
 
 ---
 
-**Educational game for ages 6-11 || Typing** 
+**Educational game for ages 6-11 || Typing**
 
-This game allows children to practice typing on the keyboard with their favorite manga in French! 
+This game allows children to practice typing on the keyboard with their favorite manga in French!
 From a simple word to the most complex sentence, they must copy a proposition on the keyboard, without spelling mistakes, without omitting capital letters and special characters.
 They choose which manga the proposals belong to, and the type of challenge.
 The correction given to them allows them to target their fault to improve in the next challenge!
