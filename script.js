@@ -32,7 +32,7 @@ const onePieceConfig = {
   title: "One Piece",
   sentences: [
     "Le roi des pirates, ce sera moi !",
-    "Les gens ne cesseront jamais d'avoir des reves !",
+    "Les gens ne cesseront jamais d'avoir des rêves !",
     "Vivre n'est pas un crime.",
     "L'avenir ne peut exister que si on met sa vie en jeu !",
     "Ne pas voir la pourriture dans ce monde, est un plaisir connu des aveugles.",
@@ -47,9 +47,9 @@ const spyFamilyConfig = {
   sentences: [
     "Papa est le plus grand menteur du monde, mais c'est un menteur cool.",
     "J'essaie de ne pas me faire kidnapper.",
-    "Tout le monde a une facette de lui-meme qu'il ne peut pas reveler aux autres.",
+    "Tout le monde a une facette de lui-même qu'il ne peut pas révéler aux autres.",
     "Personne n'a tenu la main pour me sauver",
-    "Je suppose qu'etre celibataire a cet age est deja un probleme.",
+    "Je suppose qu'être célibataire à cet âge est déjà un problème.",
   ],
   characters: ["Anya", "Loid", "Yor", "Bond", "Damian"],
   picture: spyFamilyPicture,
@@ -59,10 +59,10 @@ const spyFamilyConfig = {
 const chiConfig = {
   title: "Chi",
   sentences: [
-    "Ze le savais ! Voilà la proie ! Elle fqit cui cui !",
+    "Ze le savais ! Voilà la proie ! Elle fait cui cui !",
     "Il faut que ze fasse tomber ça aussi !",
     "Les animaux de compagnie sont interdits dans l'immeuble. Si vous voulez garder vos chats... Il va falloir quitter votre appartement.",
-    "C'est dans la boîte pleine de petutes billes qu'il faut faire pipi. Maman va te gronder !",
+    "C'est dans la boîte pleine de petites billes qu'il faut faire pipi. Maman va te gronder !",
     "Mais non ! Ze suis pas un chat ! Ze suis Chi !",
   ],
   characters: ["Youhei", "Minou", "Noiraud", "Chi", "Monsieur Yamada"],
@@ -101,7 +101,7 @@ const ichikoEtNikoConfig = {
 const rojiConfig = {
   title: "Roji",
   sentences: [
-    "Hi hi ! C'est vrai qu'on se serait crues au pays des merveilles !",
+    "Hi hi ! C'est vrai qu'on se serait cru au pays des merveilles !",
     "Ah là là, quelle gaffeuse !",
     "La ville des humains et notre pays sont au même endroit !",
     "C'est un vrai monde souterrain !!",
